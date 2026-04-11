@@ -50,16 +50,64 @@ body{
 body.hovered #vv-cursor{width:5px;height:5px}
 body.hovered #vv-ring{width:50px;height:50px;border-color:rgba(56,178,255,.8)}
 
-/* ── STAR FIELD ── */
-#starfield{
+/* ── GRADIENT MESH BACKGROUND ── */
+#mesh-bg{
   position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
 }
-.star{
-  position:absolute;border-radius:50%;
-  animation:twinkle var(--dur,3s) ease-in-out infinite;
-  animation-delay:var(--delay,0s);
+.mesh-blob{
+  position:absolute;border-radius:50%;filter:blur(120px);
+  opacity:0;animation:blob-in .8s ease forwards;
 }
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
+.mesh-blob-1{
+  width:700px;height:700px;
+  background:radial-gradient(ellipse,rgba(56,178,255,0.09) 0%,transparent 70%);
+  top:-15%;left:-10%;
+  animation:blob-drift-1 22s ease-in-out infinite, blob-in .8s ease forwards;
+}
+.mesh-blob-2{
+  width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(176,111,255,0.08) 0%,transparent 70%);
+  top:20%;right:-8%;
+  animation:blob-drift-2 28s ease-in-out infinite, blob-in .8s ease .2s forwards;
+}
+.mesh-blob-3{
+  width:500px;height:500px;
+  background:radial-gradient(ellipse,rgba(0,229,176,0.05) 0%,transparent 70%);
+  bottom:10%;left:20%;
+  animation:blob-drift-3 34s ease-in-out infinite, blob-in .8s ease .4s forwards;
+}
+.mesh-blob-4{
+  width:400px;height:400px;
+  background:radial-gradient(ellipse,rgba(56,178,255,0.06) 0%,transparent 70%);
+  bottom:-5%;right:25%;
+  animation:blob-drift-4 26s ease-in-out infinite, blob-in .8s ease .3s forwards;
+}
+.mesh-noise{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:0.4;
+}
+@keyframes blob-in{from{opacity:0}to{opacity:1}}
+@keyframes blob-drift-1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(60px,-40px) scale(1.08)}
+  66%{transform:translate(-30px,50px) scale(0.95)}
+}
+@keyframes blob-drift-2{
+  0%,100%{transform:translate(0,0) scale(1)}
+  40%{transform:translate(-50px,60px) scale(1.1)}
+  70%{transform:translate(40px,-30px) scale(0.92)}
+}
+@keyframes blob-drift-3{
+  0%,100%{transform:translate(0,0) scale(1)}
+  30%{transform:translate(70px,30px) scale(1.06)}
+  65%{transform:translate(-40px,-50px) scale(0.97)}
+}
+@keyframes blob-drift-4{
+  0%,100%{transform:translate(0,0) scale(1)}
+  45%{transform:translate(-60px,40px) scale(1.12)}
+  75%{transform:translate(50px,-20px) scale(0.9)}
+}
 
 /* ── NAV ── */
 nav{
@@ -248,7 +296,7 @@ section{position:relative;z-index:1}
   color:var(--accent);margin-bottom:.7rem;
   display:flex;align-items:center;gap:.6rem;
 }
-.sec-label::before{content:'//';color:var(--text3)}
+.sec-label::before{content:'';display:none}
 .sec-title{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(2.4rem,4vw,3.5rem);
@@ -270,7 +318,6 @@ section{position:relative;z-index:1}
   position:relative;
   display:flex;
   justify-content:center;
-  /* Keep the image column on the left — no order override */
   order:0;
 }
 .about-frame{
@@ -420,7 +467,27 @@ section{position:relative;z-index:1}
 .skill-pct{font-size:.7rem;color:var(--text3);font-family:'Space Mono',monospace}
 .skill-track{height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
 .skill-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
-.certs-wrap{margin-top:2.5rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:6px}
+
+/* Core concepts tags */
+.concepts-wrap{
+  margin-top:2rem;padding:2rem;background:var(--surface);
+  border:1px solid var(--border);border-radius:6px;
+}
+.concepts-title{
+  font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.concepts-cloud{display:flex;flex-wrap:wrap;gap:.5rem}
+.concept-tag{
+  padding:.35rem .95rem;border-radius:2px;font-size:.73rem;
+  border:1px solid rgba(176,111,255,.2);color:var(--accent2);
+  background:rgba(176,111,255,.04);transition:all .3s;cursor:none;
+}
+.concept-tag:hover{border-color:rgba(176,111,255,.5);background:rgba(176,111,255,.08)}
+
+/* Certs section */
+.certs-wrap{margin-top:2rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:6px}
 .certs-title{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:1.2rem}
 .tags-cloud{display:flex;flex-wrap:wrap;gap:.5rem}
 .cert-tag{
@@ -430,10 +497,13 @@ section{position:relative;z-index:1}
 }
 .cert-tag:hover{border-color:var(--border2);color:var(--text);background:rgba(56,178,255,.05)}
 
-/* ── EXPERIENCE ── */
+/* ── EXPERIENCE / EDUCATION / CERTS ── */
 #experience{padding:9rem 4rem}
-.exp-inner{max-width:860px;margin:0 auto}
-.exp-hdr{text-align:center;margin-bottom:4rem}
+#education{padding:5rem 4rem 9rem}
+#certifications{padding:0 4rem 9rem}
+
+.exp-inner,.edu-inner,.certs-inner{max-width:860px;margin:0 auto}
+.exp-hdr,.edu-hdr,.certs-section-hdr{text-align:center;margin-bottom:4rem}
 .timeline{position:relative;padding-left:2rem}
 .timeline::before{
   content:'';position:absolute;left:0;top:0;bottom:0;width:1px;
@@ -461,6 +531,37 @@ section{position:relative;z-index:1}
 .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .exp-bullets li{font-size:.825rem;color:var(--text2);padding-left:1.2rem;position:relative;line-height:1.65;font-weight:300}
 .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.7rem;top:.05rem;font-family:'Space Mono',monospace}
+
+/* Education cards */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.edu-card{
+  padding:2rem;background:var(--surface);
+  border:1px solid var(--border);border-radius:6px;
+  transition:border-color .3s,background .3s;
+}
+.edu-card:hover{border-color:var(--border2);background:var(--surface2)}
+.edu-period{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.edu-degree{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.04em;margin-bottom:.3rem}
+.edu-school{color:var(--text);font-size:.88rem;font-weight:500;margin-bottom:.2rem}
+.edu-location{color:var(--text2);font-size:.78rem;font-weight:300;margin-bottom:.8rem;font-family:'Space Mono',monospace}
+.edu-note{font-size:.78rem;color:var(--accent3);font-family:'Space Mono',monospace;letter-spacing:.06em}
+
+/* Cert cards */
+.cert-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.cert-card{
+  padding:1.4rem 1.6rem;background:var(--surface);
+  border:1px solid var(--border);border-radius:6px;
+  transition:border-color .3s,background .3s;
+  display:flex;flex-direction:column;gap:.3rem;
+}
+.cert-card:hover{border-color:var(--border2);background:var(--surface2)}
+.cert-card.award{
+  border-color:rgba(255,213,0,.25);
+  background:rgba(255,213,0,.03);
+}
+.cert-card.award:hover{border-color:rgba(255,213,0,.5);background:rgba(255,213,0,.06)}
+.cert-card-name{font-size:.85rem;color:var(--text);font-weight:500}
+.cert-card-issuer{font-size:.7rem;color:var(--text3);font-family:'Space Mono',monospace;letter-spacing:.06em}
 
 /* ── CONTACT ── */
 #contact{padding:9rem 4rem}
@@ -514,24 +615,14 @@ footer{
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}
-  #hero,#about,#projects,#skills,#experience,#contact{padding:5rem 1.5rem}
+  #hero,#about,#projects,#skills,#experience,#education,#certifications,#contact{padding:5rem 1.5rem}
   .hero-inner{grid-template-columns:1fr;gap:3rem;padding-top:7rem;text-align:center}
   .hero-btns,.role-pills{justify-content:center}
   .hero-visual{order:-1}
   .orb-wrap{width:240px;height:240px}
-  /* About: stack vertically, image always on top */
-  .about-inner{
-    grid-template-columns:1fr;
-    gap:3rem;
-  }
-  .about-img-wrap{
-    order:0; /* image stays first (top) on mobile */
-    justify-content:flex-start;
-    align-items:center;
-  }
-  .about-txt{
-    order:1;
-  }
+  .about-inner{grid-template-columns:1fr;gap:3rem}
+  .about-img-wrap{order:0;justify-content:flex-start;align-items:center}
+  .about-txt{order:1}
   .stats-row{grid-template-columns:repeat(3,1fr)}
   .pcard-inner{grid-template-columns:1fr!important;direction:ltr!important}
   .skills-grid{grid-template-columns:1fr}
@@ -539,6 +630,8 @@ footer{
   footer{padding:1.5rem 1.5rem}
   .sec-hdr{flex-direction:column;align-items:flex-start}
   .sec-hdr-sub{text-align:left}
+  .edu-grid{grid-template-columns:1fr}
+  .cert-cards-grid{grid-template-columns:1fr}
 }
 `;
 
@@ -560,8 +653,8 @@ const SKILLS = [
       { name: "Python", pct: 85 },
       { name: "SQL", pct: 88 },
       { name: "R", pct: 72 },
-      { name: "Machine Learning", pct: 75 },
-      { name: "Data Modeling", pct: 80 },
+      { name: "MySQL / MongoDB", pct: 82 },
+      { name: "Neo4j", pct: 65 },
     ],
   },
   {
@@ -577,49 +670,61 @@ const SKILLS = [
   {
     icon: "🛠", label: "Tools & Platforms",
     bars: [
-      { name: "MySQL / MongoDB", pct: 82 },
-      { name: "Notion / Trello / Jira", pct: 90 },
-      { name: "Neo4J", pct: 65 },
-      { name: "Microsoft 365", pct: 88 },
-      { name: "Excel (Advanced Analytics)", pct: 85 },
+      { name: "JIRA / Confluence", pct: 85 },
+      { name: "Notion / Trello", pct: 90 },
+      { name: "Microsoft 365 / Excel", pct: 88 },
+      { name: "Process Mapping / UAT", pct: 84 },
+      { name: "Funnel & Gap Analysis", pct: 86 },
     ],
   },
 ];
 
-const CERTS = [
-  "Deloitte Data Analytics · Forage",
-  "SQL Certification · HackerRank",
-  "Career Essentials · Microsoft & LinkedIn",
-  "Product Management · LinkedIn",
-  "Terrapin Scholar · Smith School",
+const CORE_CONCEPTS = [
+  "Database Management Systems",
+  "Data Mining",
+  "Predictive Analytics",
+  "Project Management",
+  "Digital Transformation",
+  "Data Processing in Python",
+  "Finance Information Systems",
   "Big Data & Cloud Computing",
-  "Harnessing AI · UMD",
-  "Digital Transformation · UMD",
-  "Business Analysis Fundamentals",
+  "Harnessing AI",
+  "Product Metrics",
+  "Experimentation",
+  "KPI Design",
+  "Stakeholder Management",
+];
+
+const CERTS = [
+  { name: "Data Analytics Job Simulation", issuer: "Deloitte Australia · Forage" },
+  { name: "Career Essentials in Business Analysis", issuer: "Microsoft & LinkedIn" },
+  { name: "SQL Certification", issuer: "HackerRank" },
+  { name: "Product Management", issuer: "LinkedIn Learning" },
+  { name: "🏆 1st Place — Social Impact Buildfest", issuer: "UMD Do Good Institute · Cashocracy AR App · Apr 2026" },
 ];
 
 const EXP = [
   {
-    period: "Aug 2025 – Present",
-    role: "MS in Information Systems",
-    org: "University of Maryland, Robert H. Smith School of Business · College Park, MD",
-    color: "var(--accent)",
+    period: "Mar 2026 – Present",
+    role: "Member — XR Club",
+    org: "University of Maryland · College Park, MD",
+    color: "var(--accent3)",
     bullets: [
-      "Terrapin Scholar — competitive merit award from Smith School",
-      "Coursework: Database Management, Data Mining, Predictive Analytics, Project Management, Big Data & Cloud, AI & Digital Transformation",
-      "Applying quantitative models and product/BA frameworks to real business problems",
+      "Active member of UMD's student organization for virtual, augmented, and mixed reality technologies",
+      "Engaging with cutting-edge XR hardware and software tools through hands-on workshops and hackathons",
+      "Part of a community building an immersive technology ecosystem on campus — applying XR thinking to product and data visualization work",
     ],
   },
   {
     period: "Aug 2024 – Feb 2025",
-    role: "Research Project Lead (Product & Data)",
+    role: "Project Lead",
     org: "KMIT · Hyderabad, India",
     color: "var(--accent2)",
     bullets: [
-      "Led cross-functional teams on large-scale data projects — gathered requirements, defined scope, and translated findings into actionable product decisions",
-      "Designed Python & SQL data workflows, improving data quality and team efficiency",
-      "Built Tableau dashboards and executive presentations aligning stakeholders on analytical insights",
-      "Documented business processes and methodologies, improving reproducibility across the org",
+      "Collaborated with cross-functional stakeholders to elicit, document, and validate business requirements — creating workflows and process maps that reduced project ambiguity across 3 departments",
+      "Analyzed 10+ process inefficiencies in data pipelines using SQL and Python, proposing improvements that enhanced data processing efficiency by 25%",
+      "Designed and delivered Power BI dashboards enabling data-driven decision-making for senior stakeholders, ensuring on-time delivery of 4 key project milestones",
+      "Supported Agile project planning, sprint tracking, and status reporting, maintaining comprehensive documentation throughout the project lifecycle",
     ],
   },
   {
@@ -628,44 +733,41 @@ const EXP = [
     org: "Deloitte Australia · Forage",
     color: "var(--accent3)",
     bullets: [
-      "Performed forensic data analysis on structured datasets using professional analytical frameworks",
+      "Performed exploratory data analysis on structured datasets using professional analytical frameworks",
       "Built a Tableau dashboard to surface insights and support business decision-making",
-      "Used Excel for data classification and translating raw data into business conclusions",
-    ],
-  },
-  {
-    period: "Aug 2021 – Jun 2025",
-    role: "B.Tech in Information Technology",
-    org: "Keshav Memorial Institute of Technology · Hyderabad, India",
-    color: "var(--accent)",
-    bullets: [
-      "Built foundation in software engineering, data systems, and applied analytics",
-      "Delivered 3 major product and data projects with real-world scope and cross-team collaboration",
+      "Used Excel for data classification and translating raw data into actionable business conclusions",
     ],
   },
 ];
 
-/* ─── Starfield ─── */
-function Starfield() {
-  const stars = Array.from({ length: 180 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 0.5,
-    dur: (Math.random() * 4 + 2).toFixed(1),
-    delay: (Math.random() * 5).toFixed(1),
-    color: Math.random() > 0.7 ? "#b06fff" : Math.random() > 0.5 ? "#38b2ff" : "#ffffff",
-  }));
+const EDUCATION = [
+  {
+    period: "Aug 2025 – Dec 2026",
+    degree: "MS in Information Systems",
+    school: "University of Maryland, Robert H. Smith School of Business",
+    location: "College Park, MD",
+    note: "Terrapin Scholar",
+    color: "var(--accent)",
+  },
+  {
+    period: "Aug 2021 – Jun 2025",
+    degree: "B.Tech in Information Technology",
+    school: "Keshav Memorial Institute of Technology",
+    location: "Hyderabad, India",
+    note: null,
+    color: "var(--accent2)",
+  },
+];
+
+/* ─── Gradient Mesh Background ─── */
+function MeshBackground() {
   return (
-    <div id="starfield">
-      {stars.map(s => (
-        <div key={s.id} className="star" style={{
-          left: `${s.x}%`, top: `${s.y}%`,
-          width: s.size, height: s.size,
-          background: s.color,
-          "--dur": `${s.dur}s`, "--delay": `${s.delay}s`,
-        }} />
-      ))}
+    <div id="mesh-bg">
+      <div className="mesh-blob mesh-blob-1" />
+      <div className="mesh-blob mesh-blob-2" />
+      <div className="mesh-blob mesh-blob-3" />
+      <div className="mesh-blob mesh-blob-4" />
+      <div className="mesh-noise" />
     </div>
   );
 }
@@ -800,9 +902,8 @@ export default function App() {
     return () => clearTimeout(t);
   }, []);
 
-  /* hover cursor enlarge */
   useEffect(() => {
-    const els = document.querySelectorAll("a,button,.pcard,.cert-tag,.stat-card,.stag");
+    const els = document.querySelectorAll("a,button,.pcard,.cert-tag,.stat-card,.stag,.concept-tag,.cert-card,.edu-card");
     const on = () => document.body.classList.add("hovered");
     const off = () => document.body.classList.remove("hovered");
     els.forEach(el => { el.addEventListener("mouseenter", on); el.addEventListener("mouseleave", off); });
@@ -815,8 +916,13 @@ export default function App() {
   const [projHdrRef, projHdrVis] = useReveal();
   const [skillsHdrRef, skillsHdrVis] = useReveal();
   const [skillsGridRef, skillsGridVis] = useReveal(0.1);
+  const [conceptsRef, conceptsVis] = useReveal();
   const [certsRef, certsVis] = useReveal();
   const [expHdrRef, expHdrVis] = useReveal();
+  const [eduHdrRef, eduHdrVis] = useReveal();
+  const [eduGridRef, eduGridVis] = useReveal(0.1);
+  const [certSecRef, certSecVis] = useReveal();
+  const [certCardsRef, certCardsVis] = useReveal(0.1);
   const [contactRef, contactVis] = useReveal();
 
   /* timeline */
@@ -838,13 +944,13 @@ export default function App() {
       <style>{CSS}</style>
       <div id="vv-cursor" ref={cursorRef} />
       <div id="vv-ring" ref={ringRef} />
-      <Starfield />
+      <MeshBackground />
 
       {/* NAV */}
       <nav className={scrolled ? "scrolled" : ""}>
         <a href="#" className="nav-logo">V<span>V</span>C</a>
         <ul className="nav-links">
-          {["about","projects","skills","experience","contact"].map(s => (
+          {["about","projects","skills","experience","education","contact"].map(s => (
             <li key={s}><a href={`#${s}`}>{s}</a></li>
           ))}
         </ul>
@@ -857,7 +963,7 @@ export default function App() {
           <div className="hero-content">
             <div className="hero-tag" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .1s" }}>
               <div className="hero-tag-dot" />
-              Open to Opportunities · 2025
+              Open to Opportunities · 2026
             </div>
             <h1 className="hero-name">
               {["Venkata", "Varshini", "Chilukamarri"].map((w, i) => (
@@ -873,20 +979,20 @@ export default function App() {
               ))}
             </h1>
             <div className="role-pills" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .65s" }}>
-              <span className="rpill rpill-pm">Product Manager</span>
-              <span className="rpill rpill-da">Data Analyst</span>
-              <span className="rpill rpill-ba">Business Analyst</span>
+              <span className="rpill rpill-pm">Aspiring Product Manager</span>
+              <span className="rpill rpill-da">Product Analytics</span>
+              <span className="rpill rpill-ba">User Growth Strategy</span>
             </div>
             <p className="hero-sub" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .75s" }}>
-              Turning <strong>complex data into clear decisions</strong> — through product thinking, business analysis, and analytics that drive measurable outcomes.
+              Turning <strong>complex data into clear product decisions</strong> — through user behavior analysis, experimentation, and data-driven thinking that drives measurable outcomes.
             </p>
             <div className="hero-btns" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .9s" }}>
               <a href="#projects" className="btn-pri">View My Work</a>
-              <a href="#contact" className="btn-sec">Download Resume</a>
+              <a href="#contact" className="btn-sec">Get In Touch</a>
             </div>
           </div>
 
-          {/* HERO VISUAL — real photo */}
+          {/* HERO VISUAL */}
           <div className="hero-visual" style={{ opacity: heroVis ? 1 : 0, transform: heroVis ? "scale(1)" : "scale(.94)", transition: "opacity 1s .4s, transform 1s .4s" }}>
             <div className="orb-wrap">
               <div className="orb-glow" />
@@ -910,7 +1016,6 @@ export default function App() {
       {/* ABOUT */}
       <section id="about">
         <div className="about-inner">
-          {/* IMAGE — left column, order:0 keeps it left on desktop and top on mobile */}
           <div ref={aboutImgRef} className={`about-img-wrap reveal ${aboutImgVis ? "vis" : ""}`}>
             <div className="about-deco" />
             <div className="about-frame">
@@ -918,19 +1023,18 @@ export default function App() {
             </div>
           </div>
 
-          {/* TEXT — right column */}
           <div ref={aboutTxtRef} className={`about-txt reveal ${aboutTxtVis ? "vis" : ""}`}>
             <div className="sec-label">About Me</div>
-            <h2 className="sec-title">I bridge data, products,<br />and business strategy.</h2>
+            <h2 className="sec-title">Product-focused candidate<br />bridging data & strategy.</h2>
             <div className="divider" />
-            <p>I'm a <strong>Product Manager, Data Analyst, and Business Analyst</strong> with a passion for one core question: how do you turn raw data into decisions that actually move a business forward?</p>
-            <p>At KMIT, I led cross-functional research projects handling large-scale datasets — translating findings into product strategy and stakeholder presentations. I've worked across the full PM and BA stack: <strong>defining KPIs, writing requirements, running experiments, facilitating sprint ceremonies</strong>, and building dashboards that connect data to decisions.</p>
-            <p>Currently pursuing my <strong>MS in Information Systems</strong> at the University of Maryland (Smith School of Business), deepening expertise in AI, predictive modeling, and digital transformation.</p>
+            <p>I'm an <strong>aspiring Product Manager</strong> with a strong foundation in user behavior analysis, product analytics, and data-driven decision-making. My work centers on a core question: how do you translate what the data says into product decisions that actually move outcomes forward?</p>
+            <p>At KMIT, I led cross-functional project teams — gathering requirements, defining KPIs, running funnel analysis, and delivering stakeholder dashboards using <strong>SQL, Python, Power BI, and Tableau</strong>. I've worked across the full BA and PM stack: writing user stories, facilitating Agile sprints, and bridging the gap between technical teams and business goals.</p>
+            <p>Currently pursuing my <strong>MS in Information Systems</strong> at the University of Maryland (Smith School of Business) as a Terrapin Scholar, deepening expertise in predictive analytics, AI systems, and digital transformation.</p>
             <div className="stats-row">
               {[
-                { target: 500, suffix: "+", label: "User Interactions Analyzed" },
-                { target: 22, suffix: "%", label: "Drop-off Identified" },
-                { target: 8, suffix: "", label: "KPIs Designed & Tracked" },
+                { target: 250, suffix: "+", label: "User Interactions Analyzed" },
+                { target: 22, suffix: "%", label: "Onboarding Drop-off Found" },
+                { target: 8, suffix: "+", label: "KPIs Designed & Tracked" },
               ].map((s, i) => (
                 <div className="stat-card" key={i}>
                   <div className="stat-num">
@@ -950,23 +1054,23 @@ export default function App() {
           <div ref={projHdrRef} className={`sec-hdr reveal ${projHdrVis ? "vis" : ""}`}>
             <div>
               <div className="sec-label">Featured Work</div>
-              <h2 className="sec-title">Case Studies</h2>
+              <h2 className="sec-title">Projects</h2>
             </div>
             <p className="sec-hdr-sub">Real problems, hard decisions, and measurable outcomes.</p>
           </div>
 
           <div className="projects-grid">
-            {/* PROJECT 1 */}
+            {/* PROJECT 1 — DONATO */}
             <ProjectCard
-              tag="Product Manager · UX · Analytics" tagClass="ptag-b"
-              title="Donation Platform Redesign"
-              desc="Led end-to-end product delivery — uncovered a 22% onboarding drop-off through funnel analysis, authored PRDs and user stories, and aligned 3 cross-functional teams across 5 sprint cycles to ship 10+ features on time."
+              tag="Product · Agile · Analytics" tagClass="ptag-b"
+              title="MERN Stack Donation Platform-DONATO"
+              desc="Partnered with cross-functional teams across 5 Agile sprints to gather, document, and prioritize business requirements — translating them into 20+ user stories and acceptance criteria. Conducted funnel analysis identifying a 22% onboarding drop-off and defined 8+ KPIs tracking conversion, retention, and engagement."
               metrics={[
                 { val: "22%", label: "Drop-off Found" },
-                { val: "10+", label: "Features Shipped" },
-                { val: "5", label: "Sprint Cycles" },
+                { val: "20+", label: "User Stories" },
+                { val: "8+", label: "KPIs Designed" },
               ]}
-              tags={["PRD Writing", "Roadmap Planning", "KPI Design", "Agile / Scrum"]}
+              tags={["Requirements Gathering", "Funnel Analysis", "KPI Design", "Agile / Scrum", "UAT"]}
               visual={
                 <MiniBarChart
                   title="Onboarding Funnel Analysis"
@@ -988,26 +1092,26 @@ export default function App() {
               }
             />
 
-            {/* PROJECT 2 */}
+            {/* PROJECT 2 — Health App */}
             <ProjectCard
               rev
-              tag="Business Analyst · Health Tech · UX" tagClass="ptag-p"
+              tag="Data Analysis · Stakeholder Reporting" tagClass="ptag-p"
               title="Consumer Health Tracking App"
-              desc="Gathered and analyzed 500+ user interactions to identify behavior patterns and gaps. Translated findings into structured business requirements, prioritized a feature backlog, and built a KPI dashboard tracking DAU, retention, and churn."
+              desc="Analyzed 500+ user interactions to identify behavioral patterns and document requirements. Produced structured findings that guided feature prioritization, improved daily active user metrics by 15%, and built stakeholder-facing dashboards tracking DAU, churn, and retention."
               metrics={[
-                { val: "500+", label: "Interactions Analyzed" },
+                { val: "250+", label: "Interactions Analyzed" },
+                { val: "+15%", label: "DAU Improvement" },
                 { val: "3", label: "Core KPIs Built" },
-                { val: "↑12%", label: "Retention Signal" },
               ]}
-              tags={["Requirements Gathering", "DAU / Retention", "Stakeholder Reporting", "Backlog Mgmt"]}
+              tags={["User Behavior Analysis", "DAU / Retention / Churn", "Stakeholder Dashboards", "Backlog Prioritization"]}
               visual={
                 <div className="pvisual-inner">
                   <div className="kpi-grid">
                     {[
-                      { val: "DAU", lbl: "Daily Active Users", color: "var(--accent)" },
-                      { val: "+12%", lbl: "Retention Lift", color: "var(--accent3)" },
-                      { val: "−18%", lbl: "Churn Reduction", color: "var(--accent2)" },
-                      { val: "500+", lbl: "Interactions Logged", color: "#ffd166" },
+                      { val: "+15%", lbl: "DAU Improvement", color: "var(--accent)" },
+                      { val: "500+", lbl: "Interactions Logged", color: "var(--accent3)" },
+                      { val: "Churn", lbl: "Tracked & Reported", color: "var(--accent2)" },
+                      { val: "3 KPIs", lbl: "Built & Maintained", color: "#ffd166" },
                     ].map((k, i) => (
                       <div className="kpi-card" key={i}>
                         <div className="kpi-val" style={{ color: k.color }}>{k.val}</div>
@@ -1017,9 +1121,9 @@ export default function App() {
                   </div>
                   <div className="flow-diagram">
                     {[
-                      { color: "var(--accent)", text: "Stakeholder interviews & data collection" },
-                      { color: "var(--accent2)", text: "Requirements analysis & gap mapping" },
-                      { color: "var(--accent3)", text: "Feature prioritization + KPI dashboard" },
+                      { color: "var(--accent)", text: "Analyzed 500+ user interaction records" },
+                      { color: "var(--accent2)", text: "Documented requirements & gap analysis" },
+                      { color: "var(--accent3)", text: "Built DAU / retention / churn dashboard" },
                     ].map((f, i) => (
                       <div key={i}>
                         {i > 0 && <div className="flow-arrow">↓</div>}
@@ -1034,17 +1138,17 @@ export default function App() {
               }
             />
 
-            {/* PROJECT 3 */}
+            {/* PROJECT 3 — Happiness */}
             <ProjectCard
-              tag="Data Analyst · ML · Research" tagClass="ptag-g"
+              tag="Predictive Analytics · Python · Tableau" tagClass="ptag-g"
               title="Global Happiness Data Analysis"
-              desc="Built Python-based predictive models on the World Happiness Report dataset to simulate policy scenarios. Designed executive dashboards that transformed complex model outputs into clear strategic narratives for non-technical stakeholders."
+              desc="Developed Python predictive models on large-scale socio-economic datasets from the World Happiness Report. Delivered structured dashboards and reports to support comparative analysis and organizational decision-making for non-technical stakeholders."
               metrics={[
                 { val: "ML", label: "Predictive Models" },
                 { val: "Python", label: "Primary Stack" },
                 { val: "Tableau", label: "Visualization" },
               ]}
-              tags={["Python", "Predictive Modeling", "Tableau Dashboards", "Executive Reporting", "Scenario Analysis"]}
+              tags={["Python", "Predictive Modeling", "Tableau Dashboards", "Comparative Analysis", "Executive Reporting"]}
               visual={
                 <MiniBarChart
                   title="Happiness Score Drivers (Model Output)"
@@ -1080,10 +1184,12 @@ export default function App() {
               </div>
             ))}
           </div>
-          <div ref={certsRef} className={`certs-wrap reveal ${certsVis ? "vis" : ""}`}>
-            <div className="certs-title">Certifications & Recognition</div>
-            <div className="tags-cloud">
-              {CERTS.map((c, i) => <span className="cert-tag" key={i}>{c}</span>)}
+
+          {/* Core Concepts */}
+          <div ref={conceptsRef} className={`concepts-wrap reveal ${conceptsVis ? "vis" : ""}`}>
+            <div className="concepts-title">🧠 Core Concepts</div>
+            <div className="concepts-cloud">
+              {CORE_CONCEPTS.map((c, i) => <span className="concept-tag" key={i}>{c}</span>)}
             </div>
           </div>
         </div>
@@ -1094,7 +1200,7 @@ export default function App() {
         <div className="exp-inner">
           <div ref={expHdrRef} className={`exp-hdr reveal ${expHdrVis ? "vis" : ""}`}>
             <div className="sec-label" style={{ justifyContent: "center" }}>Career</div>
-            <h2 className="sec-title">Experience &<br />Education</h2>
+            <h2 className="sec-title">Experience</h2>
           </div>
           <div className="timeline">
             {EXP.map((e, i) => (
@@ -1116,24 +1222,63 @@ export default function App() {
         </div>
       </section>
 
+      {/* EDUCATION */}
+      <section id="education">
+        <div className="edu-inner">
+          <div ref={eduHdrRef} className={`edu-hdr reveal ${eduHdrVis ? "vis" : ""}`}>
+            <div className="sec-label" style={{ justifyContent: "center" }}>Academic Background</div>
+            <h2 className="sec-title">Education</h2>
+          </div>
+          <div ref={eduGridRef} className={`edu-grid reveal ${eduGridVis ? "vis" : ""}`}>
+            {EDUCATION.map((e, i) => (
+              <div className="edu-card" key={i} style={{ borderColor: `rgba(${e.color === "var(--accent)" ? "56,178,255" : "176,111,255"},.15)` }}>
+                <div className="edu-period" style={{ color: e.color }}>{e.period}</div>
+                <div className="edu-degree">{e.degree}</div>
+                <div className="edu-school">{e.school}</div>
+                <div className="edu-location">{e.location}</div>
+                {e.note && <div className="edu-note">⭐ {e.note}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICATIONS */}
+      <section id="certifications">
+        <div className="certs-inner">
+          <div ref={certSecRef} className={`certs-section-hdr reveal ${certSecVis ? "vis" : ""}`}>
+            <div className="sec-label" style={{ justifyContent: "center" }}>Credentials</div>
+            <h2 className="sec-title">Certifications</h2>
+          </div>
+          <div ref={certCardsRef} className={`cert-cards-grid reveal ${certCardsVis ? "vis" : ""}`}>
+            {CERTS.map((c, i) => (
+              <div className={`cert-card${c.name.startsWith("🏆") ? " award" : ""}`} key={i}>
+                <div className="cert-card-name">{c.name}</div>
+                <div className="cert-card-issuer">{c.issuer}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact">
         <div ref={contactRef} className={`contact-inner reveal ${contactVis ? "vis" : ""}`}>
           <div className="contact-badge">
             <div className="hero-tag-dot" style={{ background: "var(--accent3)" }} />
-            Open to PM · DA · BA Roles
+            Open to Product Manager Roles
           </div>
           <h2 className="contact-title">
             Let's build something<br /><span>remarkable.</span>
           </h2>
           <p className="contact-sub">
-            Actively seeking Product Manager, Data Analyst, and Business Analyst roles where I can connect data to strategy and ship work that matters. If that sounds like your team — let's talk.
+            Actively seeking Product Manager roles where I can connect data to strategy and ship work that matters. If that sounds like your team — let's talk.
           </p>
           <div className="contact-links">
             {[
-              { href: "mailto:venkatavarshinic@gmail.com", icon: "✉", label: "Email" },
-              { href: "https://linkedin.com", icon: "in", label: "LinkedIn", target: "_blank" },
-              { href: "tel:8623405578", icon: "✆", label: "(862) 340-5578" },
+              { href: "mailto:venkatavarshinic@gmail.com", icon: "✉", label: "venkatavarshinic@gmail.com" },
+              { href: "tel:8623405578", icon: "✆", label: "+1 (862) 340-5578" },
+              { href: "https://www.linkedin.com/in/venkata-varshini-chilukamarri-62b1782b7/", icon: "in", label: "LinkedIn", target: "_blank" },
             ].map((l, i) => (
               <a key={i} href={l.href} className="contact-link" target={l.target}>
                 <span>{l.icon}</span> {l.label}
@@ -1142,14 +1287,14 @@ export default function App() {
           </div>
           <div className="email-box">
             <div className="email-addr">venkatavarshinic@gmail.com</div>
-            <div className="email-sub">College Park, MD · Available immediately · Remote & Hybrid</div>
+            <div className="email-sub">College Park, MD · U.S. Work Authorized · Remote & Hybrid</div>
           </div>
         </div>
       </section>
 
       <footer>
-        <span>© 2025 Venkata Varshini Chilukamarri</span>
-        <span>Product Manager · Data Analyst · Business Analyst · UMD Smith School</span>
+        <span>© 2026 Venkata Varshini Chilukamarri</span>
+        <span>Aspiring Product Manager · UMD Smith School · U.S. Work Authorized</span>
       </footer>
     </>
   );

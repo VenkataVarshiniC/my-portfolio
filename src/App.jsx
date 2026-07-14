@@ -639,8 +639,7 @@ footer{
 const SKILLS = [
   {
     {
-  icon: "",
-  label: "Business Analysis",
+  icon: "📊", label: "Business Analysis",
   bars: [
     { name: "Requirements Gathering", pct: 92 },
     { name: "Stakeholder Management", pct: 90 },

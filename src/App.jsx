@@ -705,14 +705,14 @@ const CERTS = [
 
 const EXP = [
   {
-    period: "Mar 2026 – Present",
-    role: "Member — XR Club",
+    period: "Jun 2026 – Present",
+    role: "Team Lead - Impact consulting Fellowship",
     org: "University of Maryland · College Park, MD",
     color: "var(--accent3)",
     bullets: [
-      "Active member of UMD's student organization for virtual, augmented, and mixed reality technologies",
-      "Engaging with cutting-edge XR hardware and software tools through hands-on workshops and hackathons",
-      "Part of a community building an immersive technology ecosystem on campus — applying XR thinking to product and data visualization work",
+      "Led a consulting workstream analyzing client business challenges and identifying AI-enabled process improvement opportunities",
+      "Conducted market research, workflow analysis, and stakeholder discussions to surface business needs and develop recommendations.",
+      "Synthesized findings into actionable deliverables and coordinated execution across cross-functional teams.",
     ],
   },
   {
@@ -727,26 +727,14 @@ const EXP = [
       "Supported Agile project planning, sprint tracking, and status reporting, maintaining comprehensive documentation throughout the project lifecycle",
     ],
   },
-  {
-    period: "Jul 2025",
-    role: "Data Analytics Job Simulation",
-    org: "Deloitte Australia · Forage",
-    color: "var(--accent3)",
-    bullets: [
-      "Performed exploratory data analysis on structured datasets using professional analytical frameworks",
-      "Built a Tableau dashboard to surface insights and support business decision-making",
-      "Used Excel for data classification and translating raw data into actionable business conclusions",
-    ],
-  },
 ];
 
 const EDUCATION = [
   {
     period: "Aug 2025 – Dec 2026",
-    degree: "MS in Information Systems",
+    degree: "MS in Information Systems and AI",
     school: "University of Maryland, Robert H. Smith School of Business",
     location: "College Park, MD",
-    note: "Terrapin Scholar",
     color: "var(--accent)",
   },
   {
@@ -979,8 +967,8 @@ export default function App() {
               ))}
             </h1>
             <div className="role-pills" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .65s" }}>
-              <span className="rpill rpill-pm">Aspiring Product Manager</span>
-              <span className="rpill rpill-da">Product Analytics</span>
+              <span className="rpill rpill-pm">Aspiring Business Analyst</span>
+              <span className="rpill rpill-da">AI Strategy</span>
               <span className="rpill rpill-ba">User Growth Strategy</span>
             </div>
             <p className="hero-sub" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .75s" }}>
@@ -1022,15 +1010,31 @@ export default function App() {
               <img src={varshinImage} alt="Venkata Varshini Chilukamarri" />
             </div>
           </div>
-
           <div ref={aboutTxtRef} className={`about-txt reveal ${aboutTxtVis ? "vis" : ""}`}>
-            <div className="sec-label">About Me</div>
-            <h2 className="sec-title">Product-focused candidate<br />bridging data & strategy.</h2>
-            <div className="divider" />
-            <p>I'm an <strong>aspiring Product Manager</strong> with a strong foundation in user behavior analysis, product analytics, and data-driven decision-making. My work centers on a core question: how do you translate what the data says into product decisions that actually move outcomes forward?</p>
-            <p>At KMIT, I led cross-functional project teams — gathering requirements, defining KPIs, running funnel analysis, and delivering stakeholder dashboards using <strong>SQL, Python, Power BI, and Tableau</strong>. I've worked across the full BA and PM stack: writing user stories, facilitating Agile sprints, and bridging the gap between technical teams and business goals.</p>
-            <p>Currently pursuing my <strong>MS in Information Systems</strong> at the University of Maryland (Smith School of Business) as a Terrapin Scholar, deepening expertise in predictive analytics, AI systems, and digital transformation.</p>
-            <div className="stats-row">
+    <div className="sec-label">About Me</div>
+    <h2 className="sec-title">
+        Business Analyst<br />
+        turning complexity into clarity.
+    </h2>
+    <div className="divider" />
+
+    <p>
+        I enjoy solving <strong>business problems</strong> that don't come with obvious answers.
+    </p>
+
+    <p>
+        That's what drew me to <strong>business analysis, consulting, and AI</strong>. I enjoy breaking down complex challenges, understanding what stakeholders truly need, and connecting data with strategy to uncover practical solutions.
+    </p>
+
+    <p>
+        I'm currently pursuing my <strong>M.S. in Information Systems &amp; Artificial Intelligence</strong> at the <strong>University of Maryland, Robert H. Smith School of Business</strong>. Along the way, I've led consulting workstreams, built decision intelligence platforms, developed business intelligence dashboards, and collaborated with cross-functional teams to transform ideas into solutions backed by data.
+    </p>
+
+    <p>
+        What motivates me most isn't just building dashboards or predictive models—it's understanding the business context behind them. I enjoy asking <strong>"why"</strong> a problem exists before deciding <strong>"how"</strong> to solve it. Whether I'm working on a consulting case, exploring emerging AI trends, or designing my next decision intelligence project, I'm always looking for better ways to help organizations make informed, confident decisions.
+    </p>
+
+    <div className="stats-row">
               {[
                 { target: 250, suffix: "+", label: "User Interactions Analyzed" },
                 { target: 22, suffix: "%", label: "Onboarding Drop-off Found" },
@@ -1272,7 +1276,7 @@ export default function App() {
             Let's build something<br /><span>remarkable.</span>
           </h2>
           <p className="contact-sub">
-            Actively seeking Product Manager roles where I can connect data to strategy and ship work that matters. If that sounds like your team — let's talk.
+            Actively seeking Business Analyst roles where I can connect data to strategy and ship work that matters. If that sounds like your team — let's talk.
           </p>
           <div className="contact-links">
             {[
@@ -1294,7 +1298,7 @@ export default function App() {
 
       <footer>
         <span>© 2026 Venkata Varshini Chilukamarri</span>
-        <span>Aspiring Product Manager · UMD Smith School · U.S. Work Authorized</span>
+        <span>Aspiring Business Analyst · UMD Smith School · U.S. Work Authorized</span>
       </footer>
     </>
   );

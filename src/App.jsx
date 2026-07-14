@@ -1009,7 +1009,8 @@ export default function App() {
           <div ref={aboutTxtRef} className={`about-txt reveal ${aboutTxtVis ? "vis" : ""}`}>
     <div className="sec-label">About Me</div>
    <h2 className="sec-title">
-    Clarity through<br />analysis.</h2>
+    Clarity through<br />
+     analysis.</h2>
     </h2>
     <div className="divider" />
 

@@ -639,7 +639,7 @@ footer{
 const SKILLS = [
   {
     {
-  icon: "📊",
+  icon: "",
   label: "Business Analysis",
   bars: [
     { name: "Requirements Gathering", pct: 92 },

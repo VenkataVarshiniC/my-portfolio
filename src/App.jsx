@@ -638,15 +638,18 @@ footer{
 /* ─────────────── DATA ─────────────── */
 const SKILLS = [
   {
-    icon: "📊", label: "Product & Business Analysis",
-    bars: [
-      { name: "Requirements Gathering & Docs", pct: 88 },
-      { name: "A/B Testing & Experimentation", pct: 80 },
-      { name: "KPI Definition & Tracking", pct: 88 },
-      { name: "Agile / Scrum / Sprint Planning", pct: 85 },
-      { name: "Stakeholder Communication", pct: 92 },
-    ],
-  },
+    {
+  icon: "📊",
+  label: "Business Analysis",
+  bars: [
+    { name: "Requirements Gathering", pct: 92 },
+    { name: "Stakeholder Management", pct: 90 },
+    { name: "Workflow Analysis", pct: 88 },
+    { name: "Business Requirements Documents (BRDs)", pct: 90 },
+    { name: "User Acceptance Testing (UAT)", pct: 86 },
+    { name: "Agile Methodologies", pct: 88 },
+  ],
+},
   {
     icon: "⚙️", label: "Technical",
     bars: [
@@ -673,8 +676,6 @@ const SKILLS = [
       { name: "JIRA / Confluence", pct: 85 },
       { name: "Notion / Trello", pct: 90 },
       { name: "Microsoft 365 / Excel", pct: 88 },
-      { name: "Process Mapping / UAT", pct: 84 },
-      { name: "Funnel & Gap Analysis", pct: 86 },
     ],
   },
 ];
@@ -689,17 +690,14 @@ const CORE_CONCEPTS = [
   "Finance Information Systems",
   "Big Data & Cloud Computing",
   "Harnessing AI",
-  "Product Metrics",
-  "Experimentation",
-  "KPI Design",
-  "Stakeholder Management",
 ];
 
 const CERTS = [
-  { name: "Data Analytics Job Simulation", issuer: "Deloitte Australia · Forage" },
-  { name: "Career Essentials in Business Analysis", issuer: "Microsoft & LinkedIn" },
+  { name: "BCG: Introduction to Strategic Consulting", issuer: "BCG · Forage" },
+  { name: "AI fundamentals: Foundations for understanding AI", issuer: "IBM" },
+  { name: "Career Essentials in Generative AI", issuer: "Microsoft & LinkedIn" },
+  { name: "Bloomberg Market Concepts", issuer: "Bloomberg" },
   { name: "SQL Certification", issuer: "HackerRank" },
-  { name: "Product Management", issuer: "LinkedIn Learning" },
   { name: "🏆 1st Place — Social Impact Buildfest", issuer: "UMD Do Good Institute · Cashocracy AR App · Apr 2026" },
 ];
 
@@ -968,12 +966,10 @@ export default function App() {
             </h1>
             <div className="role-pills" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .65s" }}>
               <span className="rpill rpill-pm">Aspiring Business Analyst</span>
-              <span className="rpill rpill-da">AI Strategy</span>
-              <span className="rpill rpill-ba">User Growth Strategy</span>
+              <span className="rpill rpill-ba">Data. Strategy. Decisions.</span>
             </div>
             <p className="hero-sub" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .75s" }}>
-              Turning <strong>complex data into clear product decisions</strong> — through user behavior analysis, experimentation, and data-driven thinking that drives measurable outcomes.
-            </p>
+             <p>Every dashboard tells a story. <strong>My job is making sure it's the right one.</strong></p>
             <div className="hero-btns" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .9s" }}>
               <a href="#projects" className="btn-pri">View My Work</a>
               <a href="#contact" className="btn-sec">Get In Touch</a>
@@ -1012,9 +1008,9 @@ export default function App() {
           </div>
           <div ref={aboutTxtRef} className={`about-txt reveal ${aboutTxtVis ? "vis" : ""}`}>
     <div className="sec-label">About Me</div>
-    <h2 className="sec-title">
-        Business Analyst<br />
-        turning complexity into clarity.
+   <h2 className="sec-title">
+    Clarity through<br />
+    analysis.</h2>
     </h2>
     <div className="divider" />
 

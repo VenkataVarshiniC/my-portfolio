@@ -638,7 +638,6 @@ footer{
 /* ─────────────── DATA ─────────────── */
 const SKILLS = [
   {
-    {
   icon: "📊", label: "Business Analysis",
   bars: [
     { name: "Requirements Gathering", pct: 92 },
@@ -968,8 +967,9 @@ export default function App() {
               <span className="rpill rpill-ba">Data. Strategy. Decisions.</span>
             </div>
             <p className="hero-sub" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .75s" }}>
-             <p>Every dashboard tells a story. <strong>My job is making sure it's the right one.</strong></p>
-            <div className="hero-btns" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .9s" }}>
+  Every dashboard tells a story. <strong>My job is making sure it's the right one.</strong>
+</p>
+<div className="hero-btns" style={{ opacity: heroVis ? 1 : 0, transition: "opacity .6s .9s" }}>
               <a href="#projects" className="btn-pri">View My Work</a>
               <a href="#contact" className="btn-sec">Get In Touch</a>
             </div>
@@ -1008,10 +1008,9 @@ export default function App() {
           <div ref={aboutTxtRef} className={`about-txt reveal ${aboutTxtVis ? "vis" : ""}`}>
     <div className="sec-label">About Me</div>
    <h2 className="sec-title">
-    Clarity through<br />
-     analysis.</h2>
-    </h2>
-    <div className="divider" />
+  Clarity through<br />
+  analysis.</h2>
+<div className="divider" />
 
     <p>
         I enjoy solving <strong>business problems</strong> that don't come with obvious answers.

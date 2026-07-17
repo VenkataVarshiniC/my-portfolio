@@ -1058,70 +1058,27 @@ export default function App() {
           </div>
 
           <div className="projects-grid">
-            {/* PROJECT 1 — DONATO */}
+            {/* PROJECT 1 — AI Strategy Copilot */}
             <ProjectCard
-              tag="Product · Agile · Analytics" tagClass="ptag-b"
-              title="MERN Stack Donation Platform-DONATO"
-              desc="Partnered with cross-functional teams across 5 Agile sprints to gather, document, and prioritize business requirements — translating them into 20+ user stories and acceptance criteria. Conducted funnel analysis identifying a 22% onboarding drop-off and defined 8+ KPIs tracking conversion, retention, and engagement."
+              tag="Multi-Agent AI · RAG · Consulting Frameworks" tagClass="ptag-b"
+              title="AI Strategy Copilot — Hypothesis-Driven Consulting Engine"
+              desc="Built a hypothesis-driven analysis engine that mirrors how a consulting case team works a problem: breaks a business question into a MECE issue tree, grounds each branch in retrieved evidence via RAG, runs quantitative analysis, red-teams its own recommendation, and exports a client-ready deck — architected end-to-end across backend, frontend, and multi-agent orchestration as an independent project."
               metrics={[
-                { val: "22%", label: "Drop-off Found" },
-                { val: "20+", label: "User Stories" },
-                { val: "8+", label: "KPIs Designed" },
+                { val: "MECE", label: "Issue Tree Engine" },
+                { val: "RAG", label: "Evidence Grounding" },
+                { val: "2-Stage", label: "Red-Team Review" },
               ]}
-              tags={["Requirements Gathering", "Funnel Analysis", "KPI Design", "Agile / Scrum", "UAT"]}
-              visual={
-                <MiniBarChart
-                  title="Onboarding Funnel Analysis"
-                  bars={[
-                    { label: "Landing", pct: 100, valLabel: "100%" },
-                    { label: "Sign Up", pct: 81, valLabel: "81%" },
-                    { label: "Profile", pct: 67, valLabel: "67%" },
-                    { label: "1st Donate", pct: 45, valLabel: "45%" },
-                    { label: "Post-Fix", pct: 73, valLabel: "73%" },
-                  ]}
-                  gradients={[
-                    "linear-gradient(90deg,#38b2ff,#b06fff)",
-                    "linear-gradient(90deg,#38b2ff,#b06fff)",
-                    "linear-gradient(90deg,#38b2ff,#b06fff)",
-                    "linear-gradient(90deg,#ff6b6b,#ff4757)",
-                    "linear-gradient(90deg,#00e5b0,#38b2ff)",
-                  ]}
-                />
-              }
-            />
-
-            {/* PROJECT 2 — Health App */}
-            <ProjectCard
-              rev
-              tag="Data Analysis · Stakeholder Reporting" tagClass="ptag-p"
-              title="Consumer Health Tracking App"
-              desc="Analyzed 500+ user interactions to identify behavioral patterns and document requirements. Produced structured findings that guided feature prioritization, improved daily active user metrics by 15%, and built stakeholder-facing dashboards tracking DAU, churn, and retention."
-              metrics={[
-                { val: "250+", label: "Interactions Analyzed" },
-                { val: "+15%", label: "DAU Improvement" },
-                { val: "3", label: "Core KPIs Built" },
-              ]}
-              tags={["User Behavior Analysis", "DAU / Retention / Churn", "Stakeholder Dashboards", "Backlog Prioritization"]}
+              tags={["MECE Framework", "Pyramid Principle", "Retrieval-Augmented Generation", "Multi-Agent Orchestration", "Sensitivity Analysis", "Automated Deck Export"]}
               visual={
                 <div className="pvisual-inner">
-                  <div className="kpi-grid">
-                    {[
-                      { val: "+15%", lbl: "DAU Improvement", color: "var(--accent)" },
-                      { val: "500+", lbl: "Interactions Logged", color: "var(--accent3)" },
-                      { val: "Churn", lbl: "Tracked & Reported", color: "var(--accent2)" },
-                      { val: "3 KPIs", lbl: "Built & Maintained", color: "#ffd166" },
-                    ].map((k, i) => (
-                      <div className="kpi-card" key={i}>
-                        <div className="kpi-val" style={{ color: k.color }}>{k.val}</div>
-                        <div className="kpi-lbl">{k.lbl}</div>
-                      </div>
-                    ))}
-                  </div>
+                  <div className="mini-chart-title">Case-Team Reasoning Pipeline</div>
                   <div className="flow-diagram">
                     {[
-                      { color: "var(--accent)", text: "Analyzed 500+ user interaction records" },
-                      { color: "var(--accent2)", text: "Documented requirements & gap analysis" },
-                      { color: "var(--accent3)", text: "Built DAU / retention / churn dashboard" },
+                      { color: "var(--accent)", text: "Structure question into MECE issue tree" },
+                      { color: "var(--accent3)", text: "Ground each branch via RAG evidence retrieval" },
+                      { color: "var(--accent2)", text: "Run deterministic quantitative analysis" },
+                      { color: "#ff6b6b", text: "Red-team stage stress-tests recommendation" },
+                      { color: "var(--accent)", text: "Export client-ready deck" },
                     ].map((f, i) => (
                       <div key={i}>
                         {i > 0 && <div className="flow-arrow">↓</div>}
@@ -1136,29 +1093,49 @@ export default function App() {
               }
             />
 
-            {/* PROJECT 3 — Happiness */}
+            {/* PROJECT 2 — Strategic Decision Intelligence Engine */}
             <ProjectCard
-              tag="Predictive Analytics · Python · Tableau" tagClass="ptag-g"
-              title="Global Happiness Data Analysis"
-              desc="Developed Python predictive models on large-scale socio-economic datasets from the World Happiness Report. Delivered structured dashboards and reports to support comparative analysis and organizational decision-making for non-technical stakeholders."
+              rev
+              tag="Full-Stack · Financial Modeling · Decision Science" tagClass="ptag-p"
+              title="Strategic Decision Intelligence Engine (SDIE)"
+              desc="A full-stack strategic decision-support platform built to mirror how a case team scopes a project: decomposed an ambiguous goal into five discrete, independently testable workstreams — financial modeling, decision science, and evidence research — then synthesized them into one evidence-backed recommendation with a generative-AI-assisted narrative layer. Solo-built across Python/FastAPI/PostgreSQL and Next.js/TypeScript."
               metrics={[
-                { val: "ML", label: "Predictive Models" },
-                { val: "Python", label: "Primary Stack" },
-                { val: "Tableau", label: "Visualization" },
+                { val: "5", label: "Independent Workstreams" },
+                { val: "Full-Stack", label: "Next.js + FastAPI" },
+                { val: "Robustness", label: "Breakeven Testing" },
               ]}
-              tags={["Python", "Predictive Modeling", "Tableau Dashboards", "Comparative Analysis", "Executive Reporting"]}
+              tags={["Workstream Decomposition", "Financial Modeling", "Decision Analysis", "Robustness / Breakeven Testing", "PostgreSQL", "Generative AI Narrative Layer"]}
               visual={
-                <MiniBarChart
-                  title="Happiness Score Drivers (Model Output)"
-                  bars={[
-                    { label: "GDP", pct: 88, valLabel: "88%" },
-                    { label: "Social", pct: 82, valLabel: "82%" },
-                    { label: "Health", pct: 74, valLabel: "74%" },
-                    { label: "Freedom", pct: 61, valLabel: "61%" },
-                    { label: "Generosity", pct: 42, valLabel: "42%" },
-                  ]}
-                  gradients={Array(5).fill("linear-gradient(90deg,#00e5b0,#38b2ff)")}
-                />
+                <div className="pvisual-inner">
+                  <div className="kpi-grid">
+                    {[
+                      { val: "5", lbl: "Workstreams Scoped", color: "var(--accent)" },
+                      { val: "FastAPI", lbl: "Backend Engine", color: "var(--accent3)" },
+                      { val: "Next.js", lbl: "Frontend Stack", color: "var(--accent2)" },
+                      { val: "Robust", lbl: "Recommendation Holds", color: "#ffd166" },
+                    ].map((k, i) => (
+                      <div className="kpi-card" key={i}>
+                        <div className="kpi-val" style={{ color: k.color }}>{k.val}</div>
+                        <div className="kpi-lbl">{k.lbl}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flow-diagram">
+                    {[
+                      { color: "var(--accent)", text: "Build vs. Acquire vs. Partner decision framed" },
+                      { color: "var(--accent2)", text: "Financial model + decision-science workstreams run" },
+                      { color: "var(--accent3)", text: "Recommendation holds unless cost weight shifts >X%" },
+                    ].map((f, i) => (
+                      <div key={i}>
+                        {i > 0 && <div className="flow-arrow">↓</div>}
+                        <div className="flow-step">
+                          <div className="flow-dot" style={{ background: f.color }} />
+                          <span>{f.text}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               }
             />
           </div>

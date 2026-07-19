@@ -730,6 +730,17 @@ const SKILLS = [
   ],
 },
   {
+    icon: "🎯", label: "Consulting Skills",
+    bars: [
+      { name: "Hypothesis-Driven Problem Solving", pct: 90 },
+      { name: "MECE Structuring", pct: 88 },
+      { name: "Pyramid Principle / Executive Communication", pct: 86 },
+      { name: "Case-Team Workstream Decomposition", pct: 87 },
+      { name: "Recommendation Stress-Testing (Red-Teaming)", pct: 85 },
+      { name: "Sensitivity & Robustness Analysis", pct: 86 },
+    ],
+  },
+  {
     icon: "⚙️", label: "Technical",
     bars: [
       { name: "Python", pct: 85 },
@@ -737,6 +748,20 @@ const SKILLS = [
       { name: "R", pct: 72 },
       { name: "MySQL / MongoDB", pct: 82 },
       { name: "Neo4j", pct: 65 },
+      { name: "FastAPI", pct: 80 },
+      { name: "PostgreSQL", pct: 78 },
+      { name: "Next.js / TypeScript", pct: 74 },
+    ],
+  },
+  {
+    icon: "🤖", label: "AI & ML Engineering",
+    bars: [
+      { name: "Multi-Agent Orchestration", pct: 82 },
+      { name: "Retrieval-Augmented Generation (RAG)", pct: 84 },
+      { name: "Causal Inference (DoWhy)", pct: 76 },
+      { name: "SHAP Explainability", pct: 80 },
+      { name: "Monte Carlo Simulation", pct: 78 },
+      { name: "Ensemble Models (Random Forest)", pct: 79 },
     ],
   },
   {
@@ -769,6 +794,11 @@ const CORE_CONCEPTS = [
   "Finance Information Systems",
   "Big Data & Cloud Computing",
   "Harnessing AI",
+  "MECE Framework & Pyramid Principle",
+  "Multi-Criteria Decision Analysis (MCDA)",
+  "Causal Inference & Treatment Effects",
+  "Clean Architecture / Domain-Driven Design",
+  "Financial Modeling (NPV, IRR, Sensitivity)",
 ];
 
 const CERTS = [
@@ -828,7 +858,7 @@ const EDUCATION = [
    IMPORTANT: replace GITHUB_USERNAME below with your real GitHub username,
    and swap each repoSlug for your actual repo name, so githubUrl points to
    the real project repos. */
-const GITHUB_USERNAME = ""; // ← replace with your real username
+const GITHUB_USERNAME = "VenkataVarshiniC"; // ← replace with your real username
 
 const PROJECT_MODALS = {
   copilot: {

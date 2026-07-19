@@ -723,7 +723,6 @@ const SKILLS = [
   bars: [
     { name: "Requirements Gathering", pct: 92 },
     { name: "Stakeholder Management", pct: 90 },
-    { name: "Workflow Analysis", pct: 88 },
     { name: "Business Requirements Documents (BRDs)", pct: 90 },
     { name: "User Acceptance Testing (UAT)", pct: 86 },
     { name: "Agile Methodologies", pct: 88 },
@@ -745,7 +744,6 @@ const SKILLS = [
     bars: [
       { name: "Python", pct: 85 },
       { name: "SQL", pct: 88 },
-      { name: "R", pct: 72 },
       { name: "MySQL / MongoDB", pct: 82 },
       { name: "Neo4j", pct: 65 },
       { name: "FastAPI", pct: 80 },
@@ -756,7 +754,6 @@ const SKILLS = [
   {
     icon: "🤖", label: "AI & ML Engineering",
     bars: [
-      { name: "Multi-Agent Orchestration", pct: 82 },
       { name: "Retrieval-Augmented Generation (RAG)", pct: 84 },
       { name: "Causal Inference (DoWhy)", pct: 76 },
       { name: "SHAP Explainability", pct: 80 },

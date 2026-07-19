@@ -828,7 +828,7 @@ const EDUCATION = [
    IMPORTANT: replace GITHUB_USERNAME below with your real GitHub username,
    and swap each repoSlug for your actual repo name, so githubUrl points to
    the real project repos. */
-const GITHUB_USERNAME = "GITHUB_USERNAME"; // ← replace with your real username
+const GITHUB_USERNAME = "VenkataVarshiniC"; // ← replace with your real username
 
 const PROJECT_MODALS = {
   copilot: {
@@ -845,7 +845,7 @@ const PROJECT_MODALS = {
       "Deterministic quantitative analysis kept separate from LLM-driven qualitative judgment",
       "Extended to a two-option comparative mode with a precedent/benchmarking layer and automated slide-deck export",
     ],
-    githubUrl: `https://github.com/${GITHUB_USERNAME}/ai-strategy-copilot`,
+    githubUrl: `https://github.com/VenkataVarshiniC/AIStrategy-Copilot`,
   },
   sdie: {
     eyebrow: "Full-Stack · Financial Modeling · Decision Science",
@@ -869,7 +869,7 @@ const PROJECT_MODALS = {
       "Evidence retrieval returns exact-excerpt citations, never paraphrased",
       "LLM boundary scoped to exactly one function: grounded narrative generation, forbidden from introducing anything outside the cited rationale",
     ],
-    githubUrl: `https://github.com/${GITHUB_USERNAME}/sdie`,
+    githubUrl: `https://github.com/VenkataVarshiniC/SDIE`,
   },
 };
 

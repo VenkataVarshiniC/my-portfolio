@@ -401,6 +401,13 @@ section{position:relative;z-index:1}
 }
 .pmetric-lbl{font-size:.62rem;color:var(--text3);letter-spacing:.08em;margin-top:.1rem;font-family:'Space Mono',monospace}
 .ptags{display:flex;gap:.45rem;flex-wrap:wrap}
+.pcard-footer{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+.case-study-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  color:var(--accent3);font-size:.82rem;font-weight:500;text-decoration:none;
+  letter-spacing:.02em;transition:gap .3s,color .3s;cursor:none;
+}
+.case-study-link:hover{gap:.7rem;color:#5ff5c8}
 .stag{
   padding:.28rem .72rem;background:rgba(255,255,255,.03);
   border:1px solid var(--border);border-radius:2px;
@@ -439,6 +446,116 @@ section{position:relative;z-index:1}
 .flow-step:hover{border-color:var(--border2);background:rgba(56,178,255,.04)}
 .flow-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .flow-arrow{text-align:center;font-size:.58rem;color:var(--text3);margin:0 0 0 .5rem;font-family:'Space Mono',monospace}
+
+/* ── CASE STUDY (SDIE) ── */
+#sdie-case-study{padding:6rem 4rem 9rem}
+.cs-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:5rem}
+.cs-header{max-width:760px}
+.cs-eyebrow{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:.8rem}
+.cs-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.6vw,3rem);letter-spacing:.04em;line-height:1.05;margin-bottom:1.4rem}
+.cs-problem{color:var(--text2);font-size:.95rem;line-height:1.85;font-weight:300}
+.cs-problem strong{color:var(--text);font-weight:500}
+
+.cs-block-label{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.cs-block-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
+
+/* Signature artifact */
+.cs-artifact-intro{font-size:.9rem;color:var(--text2);font-style:italic;line-height:1.7;margin-bottom:1.6rem;max-width:640px;font-weight:300}
+.cs-artifact-intro strong{color:var(--accent3);font-style:normal;font-weight:500}
+.cs-artifact-card{
+  border:1px solid rgba(0,229,176,.28);border-radius:8px;
+  background:linear-gradient(160deg,rgba(0,229,176,.05),rgba(176,111,255,.03));
+  padding:2.5rem;position:relative;overflow:hidden;
+  box-shadow:0 0 60px rgba(0,229,176,.06);
+}
+.cs-artifact-card::before{
+  content:'';position:absolute;top:-40%;right:-10%;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,229,176,.1),transparent 70%);pointer-events:none;
+}
+.cs-artifact-tag{
+  display:inline-block;padding:.3rem .85rem;border-radius:2px;
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  font-family:'Space Mono',monospace;color:var(--accent3);
+  background:rgba(0,229,176,.1);border:1px solid rgba(0,229,176,.3);margin-bottom:1.2rem;
+}
+.cs-artifact-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.03em;line-height:1.1;margin-bottom:.9rem;position:relative}
+.cs-artifact-summary{color:var(--text2);font-size:.88rem;line-height:1.8;margin-bottom:1.6rem;max-width:620px;position:relative;font-weight:300}
+.cs-artifact-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.8rem;position:relative}
+.cs-artifact-stat{padding:1rem;background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:4px;text-align:center}
+.cs-artifact-stat-val{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--accent3);letter-spacing:.03em}
+.cs-artifact-stat-lbl{font-size:.6rem;color:var(--text3);margin-top:.25rem;letter-spacing:.06em;font-family:'Space Mono',monospace}
+.cs-artifact-actions{display:flex;gap:.9rem;flex-wrap:wrap;position:relative}
+.cs-artifact-btn{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:3px;
+  font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;
+  cursor:none;transition:all .3s;font-family:'Space Grotesk',sans-serif;
+}
+.cs-artifact-btn-primary{background:linear-gradient(135deg,var(--accent3),var(--accent));color:#04120e;box-shadow:0 0 24px rgba(0,229,176,.25)}
+.cs-artifact-btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(0,229,176,.4)}
+.cs-artifact-btn-ghost{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text)}
+.cs-artifact-btn-ghost:hover{border-color:var(--border2)}
+.cs-robust-table{width:100%;border-collapse:collapse;margin-top:1.4rem;font-size:.78rem;position:relative}
+.cs-robust-table th{text-align:left;color:var(--text3);font-weight:500;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.5rem .7rem;border-bottom:1px solid var(--border);font-family:'Space Mono',monospace}
+.cs-robust-table td{padding:.6rem .7rem;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text2)}
+.cs-robust-table tr:last-child td{border-bottom:none}
+.cs-robust-table .flip-never{color:var(--accent3);font-family:'Space Mono',monospace}
+.cs-robust-table .flip-val{color:#ffd166;font-family:'Space Mono',monospace}
+
+/* Architecture diagram (hand-built, no external image dependency) */
+.cs-diagram-frame{
+  border:1px solid var(--border);border-radius:8px;background:var(--surface);
+  padding:2.5rem 2rem;overflow-x:auto;
+}
+.cs-diagram-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.cs-diagram-node{
+  min-width:150px;padding:.9rem 1.1rem;border-radius:6px;text-align:center;
+  border:1px solid var(--border2);background:rgba(56,178,255,.05);
+}
+.cs-diagram-node-name{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--text);font-weight:700}
+.cs-diagram-node-sub{font-size:.62rem;color:var(--text3);margin-top:.25rem;letter-spacing:.03em}
+.cs-diagram-node.orchestrator{
+  background:linear-gradient(135deg,rgba(0,229,176,.1),rgba(176,111,255,.08));
+  border-color:rgba(0,229,176,.4);min-width:200px;
+}
+.cs-diagram-node.orchestrator .cs-diagram-node-name{color:var(--accent3)}
+.cs-diagram-connector{display:flex;justify-content:center;margin-bottom:1rem}
+.cs-diagram-connector-line{width:1px;height:34px;background:linear-gradient(to bottom,var(--accent3),transparent)}
+.cs-diagram-legend{display:flex;gap:1.5rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap}
+.cs-diagram-legend-item{display:flex;align-items:center;gap:.5rem;font-size:.68rem;color:var(--text3);font-family:'Space Mono',monospace}
+.cs-diagram-legend-dot{width:8px;height:8px;border-radius:50%}
+
+/* Screenshots */
+.cs-shots-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.cs-shot-frame{
+  border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg2);
+}
+.cs-shot-frame img{width:100%;height:auto;display:block}
+.cs-shot-caption{padding:1rem 1.2rem;border-top:1px solid var(--border)}
+.cs-shot-caption-title{font-size:.85rem;color:var(--text);font-weight:500;margin-bottom:.2rem}
+.cs-shot-caption-desc{font-size:.72rem;color:var(--text3);font-family:'Space Mono',monospace;letter-spacing:.02em}
+.cs-shot-placeholder{
+  aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+  border-bottom:1px dashed var(--border);color:var(--text3);
+}
+.cs-shot-placeholder-icon{font-size:1.6rem;opacity:.5}
+.cs-shot-placeholder-text{font-size:.7rem;font-family:'Space Mono',monospace;letter-spacing:.04em;text-align:center;max-width:220px;line-height:1.6}
+
+/* Not-built section */
+.cs-not-built-list{display:flex;flex-direction:column;gap:1rem}
+.cs-not-built-item{
+  padding:1.3rem 1.5rem;background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;display:grid;grid-template-columns:180px 1fr;gap:1.2rem;align-items:start;
+}
+.cs-not-built-choice{font-size:.8rem;color:var(--accent2);font-weight:600;line-height:1.5}
+.cs-not-built-why{font-size:.82rem;color:var(--text2);line-height:1.7;font-weight:300}
+
+@media(max-width:900px){
+  #sdie-case-study{padding:4rem 1.5rem}
+  .cs-artifact-stats{grid-template-columns:1fr}
+  .cs-diagram-row{flex-direction:column;align-items:center}
+  .cs-shots-grid{grid-template-columns:1fr}
+  .cs-not-built-item{grid-template-columns:1fr;gap:.4rem}
+}
 
 /* ── SKILLS ── */
 #skills{
@@ -898,6 +1015,11 @@ export default function App() {
   const [aboutImgRef, aboutImgVis] = useReveal();
   const [aboutTxtRef, aboutTxtVis] = useReveal();
   const [projHdrRef, projHdrVis] = useReveal();
+  const [csHdrRef, csHdrVis] = useReveal();
+  const [csArtifactRef, csArtifactVis] = useReveal();
+  const [csDiagramRef, csDiagramVis] = useReveal();
+  const [csShotsRef, csShotsVis] = useReveal();
+  const [csNotBuiltRef, csNotBuiltVis] = useReveal();
   const [skillsHdrRef, skillsHdrVis] = useReveal();
   const [skillsGridRef, skillsGridVis] = useReveal(0.1);
   const [conceptsRef, conceptsVis] = useReveal();
@@ -1098,13 +1220,18 @@ export default function App() {
               rev
               tag="Full-Stack · Financial Modeling · Decision Science" tagClass="ptag-p"
               title="Strategic Decision Intelligence Engine (SDIE)"
-              desc="A full-stack strategic decision-support platform built to mirror how a case team scopes a project: decomposed an ambiguous goal into five discrete, independently testable workstreams — financial modeling, decision science, and evidence research — then synthesized them into one evidence-backed recommendation with a generative-AI-assisted narrative layer. Solo-built across Python/FastAPI/PostgreSQL and Next.js/TypeScript."
+              desc="A full-stack platform structuring strategic decisions the way a case team does: decompose into workstreams, apply rigorous quant analysis, ground every claim in evidence, stress-test the answer before trusting it. Deterministic quant analysis is kept strictly separate from LLM-assisted synthesis, so every recommendation traces to a number or a cited source — not a language model's confidence."
               metrics={[
-                { val: "5", label: "Independent Workstreams" },
-                { val: "Full-Stack", label: "Next.js + FastAPI" },
-                { val: "Robustness", label: "Breakeven Testing" },
+                { val: "2000", label: "Hindcast Tested Against" },
+                { val: "0.40", label: "Robustness Margin" },
+                { val: "6", label: "Bounded Contexts" },
               ]}
-              tags={["Workstream Decomposition", "Financial Modeling", "Decision Analysis", "Robustness / Breakeven Testing", "PostgreSQL", "Generative AI Narrative Layer"]}
+              tags={["Clean Architecture / DDD", "Monte Carlo Simulation", "MCDA + Weight Robustness", "Decision-Tree EVPI", "Evidence-Grounded Synthesis", "PostgreSQL"]}
+              footer={
+                <a href="#sdie-case-study" className="case-study-link">
+                  View full case study — the Blockbuster/Netflix hindcast ↓
+                </a>
+              }
               visual={
                 <div className="pvisual-inner">
                   <div className="kpi-grid">
@@ -1138,6 +1265,173 @@ export default function App() {
                 </div>
               }
             />
+          </div>
+        </div>
+      </section>
+
+      {/* SDIE CASE STUDY */}
+      <section id="sdie-case-study">
+        <div className="cs-inner">
+          <div ref={csHdrRef} className={`cs-header reveal ${csHdrVis ? "vis" : ""}`}>
+            <div className="cs-eyebrow">Featured Case Study — SDIE</div>
+            <h2 className="cs-title">Strategic Decision Intelligence Engine</h2>
+            <p className="cs-problem">
+              Most "AI decision tools" fall into one of two traps: <strong>chatbots</strong> that
+              generate confident-sounding answers with no analytical rigor behind them, or
+              <strong> spreadsheets</strong> with rigor but no structure connecting the numbers to
+              a decision. SDIE separates deterministic quant analysis — financial modeling,
+              decision science — from LLM-assisted synthesis, so every recommendation traces back
+              to <strong>a number or a cited source</strong>, never to a language model's
+              confidence alone.
+            </p>
+          </div>
+
+          {/* SIGNATURE ARTIFACT */}
+          <div ref={csArtifactRef} className={`reveal ${csArtifactVis ? "vis" : ""}`}>
+            <div className="cs-block-label">The Signature Artifact</div>
+            <p className="cs-artifact-intro">
+              I tested the platform against <strong>one of the most-cited strategic
+              misjudgments in corporate history</strong> — using only information available in
+              2000.
+            </p>
+            <div className="cs-artifact-card">
+              <span className="cs-artifact-tag">Hindcast Validation · Live API, Not a Mockup</span>
+              <h3 className="cs-artifact-title">Would SDIE Have Caught Blockbuster's Netflix Mistake?</h3>
+              <p className="cs-artifact-summary">
+                In 2000, Netflix offered to sell itself to Blockbuster for $50M. Blockbuster
+                declined. Using only the figures a Blockbuster executive had access to at the
+                time, I ran the decision through SDIE's live MCDA engine — same endpoint used for
+                any build-vs-buy case on the platform — and it recommended acquisition by a 0.40
+                weighted-score margin, then automatically stress-tested that recommendation
+                against every criterion's weight.
+              </p>
+              <div className="cs-artifact-stats">
+                <div className="cs-artifact-stat">
+                  <div className="cs-artifact-stat-val">0.70</div>
+                  <div className="cs-artifact-stat-lbl">Acquire — Weighted Score</div>
+                </div>
+                <div className="cs-artifact-stat">
+                  <div className="cs-artifact-stat-val">0.30</div>
+                  <div className="cs-artifact-stat-lbl">Decline — Weighted Score</div>
+                </div>
+                <div className="cs-artifact-stat">
+                  <div className="cs-artifact-stat-val">2 of 4</div>
+                  <div className="cs-artifact-stat-lbl">Criteria Never Flip the Call</div>
+                </div>
+              </div>
+              <table className="cs-robust-table">
+                <thead>
+                  <tr><th>Criterion</th><th>Weight</th><th>Flips recommendation at</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Strategic fit with digital distribution</td><td>0.35</td><td className="flip-never">Never flips</td></tr>
+                  <tr><td>Downside protection against disruption</td><td>0.35</td><td className="flip-never">Never flips</td></tr>
+                  <tr><td>Acquisition cost</td><td>0.15</td><td className="flip-val">0.40 (+167%)</td></tr>
+                  <tr><td>Near-term cannibalization risk</td><td>0.15</td><td className="flip-val">0.40 (+167%)</td></tr>
+                </tbody>
+              </table>
+              <div className="cs-artifact-actions">
+                <a href="/case-studies/blockbuster-netflix-memo.pdf" target="_blank" rel="noopener noreferrer" className="cs-artifact-btn cs-artifact-btn-primary">
+                  ↓ View the one-page memo (PDF)
+                </a>
+                <a href="/case-studies/blockbuster-netflix-2000.md" target="_blank" rel="noopener noreferrer" className="cs-artifact-btn cs-artifact-btn-ghost">
+                  Read the full write-up
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* ARCHITECTURE DIAGRAM */}
+          <div ref={csDiagramRef} className={`reveal ${csDiagramVis ? "vis" : ""}`}>
+            <div className="cs-block-label">System Architecture — Bounded Context Map</div>
+            <div className="cs-diagram-frame">
+              <div className="cs-diagram-row">
+                <div className="cs-diagram-node">
+                  <div className="cs-diagram-node-name">problem_framing</div>
+                  <div className="cs-diagram-node-sub">Five Forces / SWOT</div>
+                </div>
+                <div className="cs-diagram-node">
+                  <div className="cs-diagram-node-name">evidence_research</div>
+                  <div className="cs-diagram-node-sub">Cited, exact-excerpt search</div>
+                </div>
+              </div>
+              <div className="cs-diagram-connector"><div className="cs-diagram-connector-line" /></div>
+              <div className="cs-diagram-row">
+                <div className="cs-diagram-node">
+                  <div className="cs-diagram-node-name">financial_modeling</div>
+                  <div className="cs-diagram-node-sub">NPV · IRR · sensitivity</div>
+                </div>
+                <div className="cs-diagram-node">
+                  <div className="cs-diagram-node-name">decision_analysis</div>
+                  <div className="cs-diagram-node-sub">MCDA · Monte Carlo · EVPI</div>
+                </div>
+              </div>
+              <div className="cs-diagram-connector"><div className="cs-diagram-connector-line" /></div>
+              <div className="cs-diagram-row">
+                <div className="cs-diagram-node">
+                  <div className="cs-diagram-node-name">recommendation_synthesis</div>
+                  <div className="cs-diagram-node-sub">Rationale · overrides · narrative</div>
+                </div>
+              </div>
+              <div className="cs-diagram-connector"><div className="cs-diagram-connector-line" /></div>
+              <div className="cs-diagram-row">
+                <div className="cs-diagram-node orchestrator">
+                  <div className="cs-diagram-node-name">workspace</div>
+                  <div className="cs-diagram-node-sub">Orchestrates all five by reference — owns no analytical logic itself</div>
+                </div>
+              </div>
+              <div className="cs-diagram-legend">
+                <div className="cs-diagram-legend-item"><span className="cs-diagram-legend-dot" style={{ background: "var(--accent)" }} />Deterministic quant core</div>
+                <div className="cs-diagram-legend-item"><span className="cs-diagram-legend-dot" style={{ background: "var(--accent3)" }} />Orchestration layer</div>
+                <div className="cs-diagram-legend-item"><span className="cs-diagram-legend-dot" style={{ background: "var(--accent2)" }} />LLM boundary: narrative generation only, grounded strictly in the synthesized rationale</div>
+              </div>
+            </div>
+          </div>
+
+          {/* SCREENSHOTS */}
+          <div ref={csShotsRef} className={`reveal ${csShotsVis ? "vis" : ""}`}>
+            <div className="cs-block-label">Dashboards</div>
+            <div className="cs-shots-grid">
+              <div className="cs-shot-frame">
+                <div className="cs-shot-placeholder">
+                  <span className="cs-shot-placeholder-icon">📊</span>
+                  <span className="cs-shot-placeholder-text">Add screenshot: financial-modeling-dashboard.png</span>
+                </div>
+                <div className="cs-shot-caption">
+                  <div className="cs-shot-caption-title">Financial Modeling</div>
+                  <div className="cs-shot-caption-desc">NPV / IRR / payback + one-way sensitivity tornado</div>
+                </div>
+              </div>
+              <div className="cs-shot-frame">
+                <div className="cs-shot-placeholder">
+                  <span className="cs-shot-placeholder-icon">📈</span>
+                  <span className="cs-shot-placeholder-text">Add screenshot: decision-analysis-dashboard.png</span>
+                </div>
+                <div className="cs-shot-caption">
+                  <div className="cs-shot-caption-title">Decision Analysis</div>
+                  <div className="cs-shot-caption-desc">MCDA ranking + weight-robustness breakeven</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* WHAT I CHOSE NOT TO BUILD */}
+          <div ref={csNotBuiltRef} className={`reveal ${csNotBuiltVis ? "vis" : ""}`}>
+            <div className="cs-block-label">What I Deliberately Chose Not to Build</div>
+            <div className="cs-not-built-list">
+              <div className="cs-not-built-item">
+                <span className="cs-not-built-choice">Lexical search, not vector embeddings</span>
+                <span className="cs-not-built-why">Evidence retrieval runs on Postgres native full-text search rather than pgvector or an embedding API — sufficient for this corpus size, and it avoids an external dependency the scope doesn't need.</span>
+              </div>
+              <div className="cs-not-built-item">
+                <span className="cs-not-built-choice">Hardcoded benchmark table, not a live data feed</span>
+                <span className="cs-not-built-why">Industry WACC/IRR ranges are stable, slow-changing figures. Keeping them in code (not an external API) keeps every assumption flag fast, offline, and auditable — a reviewer can trace a warning to a one-line constant, not an opaque call.</span>
+              </div>
+              <div className="cs-not-built-item">
+                <span className="cs-not-built-choice">Stub auth, not full OIDC</span>
+                <span className="cs-not-built-why">Every request already routes through one tenant/user resolution seam, so real auth is a scoped swap later, not a redesign — appropriate scoping for a portfolio-stage build, not a production one.</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1276,7 +1570,7 @@ export default function App() {
 }
 
 /* ─── Project Card component ─── */
-function ProjectCard({ tag, tagClass, title, desc, metrics, tags, visual, rev }) {
+function ProjectCard({ tag, tagClass, title, desc, metrics, tags, visual, rev, footer }) {
   const [ref, vis] = useReveal();
   return (
     <div ref={ref} className={`pcard reveal ${vis ? "vis" : ""}`}>
@@ -1296,6 +1590,7 @@ function ProjectCard({ tag, tagClass, title, desc, metrics, tags, visual, rev })
           <div className="ptags">
             {tags.map((t, i) => <span className="stag" key={i}>{t}</span>)}
           </div>
+          {footer && <div className="pcard-footer">{footer}</div>}
         </div>
         <div className="pvisual">{visual}</div>
       </div>

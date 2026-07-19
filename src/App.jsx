@@ -828,22 +828,22 @@ const EDUCATION = [
    IMPORTANT: replace GITHUB_USERNAME below with your real GitHub username,
    and swap each repoSlug for your actual repo name, so githubUrl points to
    the real project repos. */
-const GITHUB_USERNAME = "https://github.com/VenkataVarshiniC"; // ← replace with your real username
+const GITHUB_USERNAME = ""; // ← replace with your real username
 
 const PROJECT_MODALS = {
   copilot: {
     eyebrow: "Multi-Agent AI · RAG · Consulting Frameworks",
     title: "AI Strategy Copilot — Hypothesis-Driven Consulting Engine",
     paragraphs: [
-      "A hypothesis-driven analysis engine that mirrors how a consulting case team works a problem: it breaks a business question into a MECE issue tree, grounds each branch in retrieved evidence via RAG, runs quantitative analysis, red-teams its own recommendation, and exports a client-ready deck.",
-      "Architected end-to-end — backend, frontend, and multi-agent orchestration — as an independent project, applying the MECE framework and the Pyramid Principle directly into the orchestration logic rather than as a stylistic wrapper.",
+      "AI Strategy Copilot is a hypothesis-driven analysis engine that mirrors how a consulting case team actually works a problem: it breaks a business question into a MECE issue tree, grounds each branch in retrieved evidence, runs quantitative analysis, red-teams its own recommendation, and exports a client-ready deck — built end-to-end (backend, frontend, and multi-agent orchestration) as an independent project.",
+      "Most AI business tools either answer questions directly from a language model with no grounding or structure, or are pure dashboards with no reasoning layer. Neither matches how strategy work actually happens — an engagement team doesn't answer a question, it structures the problem, gathers evidence, tests hypotheses, and stress-tests its own conclusion before presenting it.",
     ],
     highlights: [
-      "MECE issue-tree structuring built into the prompting and orchestration logic itself",
-      "RAG layer with confidence-scoring safeguards against fabricating support when evidence is absent",
-      "Independently-prompted red-team reviewer stage that argues against the primary recommendation",
-      "Deterministic quantitative analysis kept separate from LLM-driven qualitative judgment",
-      "Extended to a two-option comparative mode with a precedent/benchmarking layer and automated slide-deck export",
+      "Applied the MECE framework and the Pyramid Principle directly into the system's prompting and orchestration logic, not just as a stylistic wrapper",
+      "Separated deterministic, auditable quantitative analysis (market sizing, financial ratios, sensitivity) from LLM-driven qualitative judgment, so every number in the output is traceable to either real input or an explicitly labeled assumption",
+      "Built a retrieval-augmented generation (RAG) layer so every finding is grounded in ingested source material, with an explicit instruction (and confidence-scoring safeguard) against fabricating support when evidence is absent",
+      "Added a second, independently-prompted \"red-team\" reviewer stage that argues against the primary recommendation rather than validating it — closer to how a real recommendation gets pressure-tested before reaching a client",
+      "Extended the single-question pipeline into a two-option comparative mode and a precedent/benchmarking layer, and closed the loop with automated slide-deck export",
     ],
     githubUrl: `https://github.com/VenkataVarshiniC/AIStrategy-Copilot`,
   },
@@ -1278,7 +1278,7 @@ export default function App() {
             <ProjectCard
               tag="Multi-Agent AI · RAG · Consulting Frameworks" tagClass="ptag-b"
               title="AI Strategy Copilot — Hypothesis-Driven Consulting Engine"
-              desc="Built a hypothesis-driven analysis engine that mirrors how a consulting case team works a problem: breaks a business question into a MECE issue tree, grounds each branch in retrieved evidence via RAG, runs quantitative analysis, red-teams its own recommendation, and exports a client-ready deck — architected end-to-end across backend, frontend, and multi-agent orchestration as an independent project."
+              desc="AI Strategy Copilot is a hypothesis-driven analysis engine that mirrors how a consulting case team actually works a problem: it breaks a business question into a MECE issue tree, grounds each branch in retrieved evidence, runs quantitative analysis, red-teams its own recommendation, and exports a client-ready deck — built end-to-end (backend, frontend, and multi-agent orchestration) as an independent project."
               metrics={[
                 { val: "MECE", label: "Issue Tree Engine" },
                 { val: "RAG", label: "Evidence Grounding" },

@@ -828,7 +828,7 @@ const EDUCATION = [
    IMPORTANT: replace GITHUB_USERNAME below with your real GitHub username,
    and swap each repoSlug for your actual repo name, so githubUrl points to
    the real project repos. */
-const GITHUB_USERNAME = "VenkataVarshiniC"; // ← replace with your real username
+const GITHUB_USERNAME = "https://github.com/VenkataVarshiniC"; // ← replace with your real username
 
 const PROJECT_MODALS = {
   copilot: {
@@ -870,6 +870,32 @@ const PROJECT_MODALS = {
       "LLM boundary scoped to exactly one function: grounded narrative generation, forbidden from introducing anything outside the cited rationale",
     ],
     githubUrl: `https://github.com/VenkataVarshiniC/SDIE`,
+  },
+  aiParadox: {
+    eyebrow: "Machine Learning · Causal Inference · Enterprise Strategy",
+    title: "The AI Adoption Paradox",
+    paragraphs: [
+      "Enterprises deployed an estimated $150B in AI spend in 2024. The default diagnosis when results disappoint is to spend more — bigger models, more vendors, more simultaneous pilots. Across 1,500 enterprises, investment size explains 0.6% of the variance in AI ROI. The real drivers are organizational, and they are measurable.",
+      "\u201cProcess redesign quality and executive alignment together explain 58% of AI ROI variance. Money explains 0.6%.\u201d",
+    ],
+    artifact: {
+      tag: "Causal Validation · DoWhy Backdoor Adjustment",
+      title: "From correlation to causation, not just a leaderboard R²",
+      description: "A 1-point improvement in process redesign causally increases ROI by 8.67 percentage points — estimated via a domain-knowledge causal DAG, not inferred from correlation alone.",
+      stats: [
+        { val: "0.886", lbl: "Champion Model R²" },
+        { val: "58%", lbl: "Variance — 2 Factors" },
+        { val: "+8.67pp", lbl: "Process Redesign ATE" },
+      ],
+    },
+    highlights: [
+      "Hypothesis structured before a line of code: organizational capability, not capital or technology, is the differentiating variable — 8 dimensions sourced from MIT NANDA, McKinsey, Gartner, BCG, and Stanford AI research",
+      "1,500-company synthetic dataset calibrated to match published benchmarks, including the documented 6% high-performer rate and 95% pilot-failure statistic — 10 raw signals engineered into 27 features encoding synergy effects and diminishing returns",
+      "Six algorithms compared via 5-fold cross-validation; champion selected by CV R² (not test R²) to prevent selection bias — Random Forest (R²=0.886, MAE=10.7%) beat every gradient boosting variant",
+      "DoWhy backdoor adjustment on a 16-relationship causal DAG; Average Treatment Effects estimated with 95% confidence intervals for four key interventions",
+      "Methodological transparency: the dataset is synthetic but calibrated, not real company data — documented openly rather than presented as if it were, including where the causal DAG's assumptions would need external validation in a production setting",
+    ],
+    githubUrl: `https://github.com/VenkataVarshiniC/AI-Paradox`,
   },
 };
 
@@ -1336,6 +1362,43 @@ export default function App() {
                     ))}
                   </div>
                 </div>
+              }
+            />
+
+            {/* PROJECT 3 — The AI Adoption Paradox */}
+            <ProjectCard
+              tag="ML · Causal Inference · Enterprise Strategy" tagClass="ptag-g"
+              title="The AI Adoption Paradox"
+              desc="6% of enterprises achieve meaningful AI ROI. Built the model that explains why. Across 1,500 enterprises, investment size explains 0.6% of ROI variance — process redesign quality and executive alignment together explain 58%. Six algorithms compared via cross-validation, then a causal DAG (DoWhy) to move from correlation to a defensible treatment-effect estimate."
+              metrics={[
+                { val: "0.886", label: "Champion Model R²" },
+                { val: "58%", label: "ROI Variance — 2 Factors" },
+                { val: "1,500", label: "Enterprises Modeled" },
+              ]}
+              tags={["Random Forest", "DoWhy Causal Inference", "SHAP Explainability", "Feature Engineering", "5-Fold Cross-Validation", "Synthetic Data Calibration"]}
+              footer={
+                <button type="button" className="modal-trigger" onClick={() => setActiveModal("aiParadox")}>
+                  View full case study — from correlation to causation →
+                </button>
+              }
+              visual={
+                <MiniBarChart
+                  title="ROI Variance Explained, By Factor"
+                  bars={[
+                    { label: "Process", pct: 29.2, valLabel: "29.2%" },
+                    { label: "Exec Align", pct: 28.9, valLabel: "28.9%" },
+                    { label: "Pilots", pct: 6, valLabel: "<2%" },
+                    { label: "Vendor", pct: 4, valLabel: "<2%" },
+                    { label: "Spend", pct: 2, valLabel: "0.6%" },
+                  ]}
+                  gradients={[
+                    "linear-gradient(90deg,#00e5b0,#38b2ff)",
+                    "linear-gradient(90deg,#00e5b0,#38b2ff)",
+                    "linear-gradient(90deg,#3a4a68,#3a4a68)",
+                    "linear-gradient(90deg,#3a4a68,#3a4a68)",
+                    "linear-gradient(90deg,#3a4a68,#3a4a68)",
+                  ]}
+                />
               }
             />
           </div>

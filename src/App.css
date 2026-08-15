@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-display: 'Newsreader', 'Inter', serif;
+}
+
+/*
+  Token system — "boutique advisory", light + elegant.
+  Warm ivory ground (deliberately NOT the cream-+-terracotta
+  combo that's become the default AI-portfolio look), a deep
+  warm-charcoal ink for softer contrast than pure black, and
+  a jewel-tone accent trio — forest, brass, wine — instead of
+  neon or orange. Variable NAMES match what App.jsx already
+  references, so no JSX edits are needed.
+*/
+:root {
+  --bg: #f6f2e9;
+  --bg-2: #efe8d9;
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface-hi: rgba(255, 255, 255, 0.8);
+  --border: rgba(35, 38, 34, 0.09);
+  --border-hi: rgba(35, 38, 34, 0.18);
+  --ink: #262a26;
+  --muted: #6d6a5e;
+  --muted-2: #a29c8b;
+
+  --violet: #2f5d50;   /* deep forest — primary accent */
+  --indigo: #1c352c;   /* deep pine — gradient partner for violet */
+  --cyan: #b1893f;     /* warm brass/gold — secondary accent */
+  --amber: #7c3a52;    /* muted wine — tertiary accent */
+
+  --grain-opacity: 0.035;
+  --card-shadow: 0 1px 2px rgba(35, 38, 34, 0.04), 0 12px 28px -12px rgba(35, 38, 34, 0.14);
+
+  /* Decision Console — dark terminal panel, deliberately separate
+     from the light-mode --ink/--muted tokens above (which are
+     near-black/dark-olive and unreadable against a dark background). */
+  --console-bg: #140f0b;
+  --console-header: #1d1712;
+  --console-border: rgba(178, 137, 63, 0.22);
+  --console-text: #f3ede0;      /* command text — bright ivory */
+  --console-muted: #b8ab90;     /* output/system text — warm tan */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 18% 6%, rgba(255,255,255,0.55), transparent 42%),
+    radial-gradient(circle at 82% 92%, rgba(178, 137, 63, 0.06), transparent 50%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Fine paper-grain texture — gives the ivory ground a soft,
+   printed-stock quality rather than a flat digital fill. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection { background: var(--violet); color: #f6f2e9; }
+
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--violet), var(--indigo)); border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* reveal-on-scroll — quiet and short, no bounce */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* Ambient wash — same hook the Backdrop component uses
+   (bg-[var(--indigo)]/25 blur-[120px] etc.), now a barely
+   visible warm-light drift rather than a glowing blob. */
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(1.5%, -1.5%) scale(1.015); }
+}
+.animate-blob { animation: blob-drift 38s ease-in-out infinite; filter: blur(130px) saturate(80%); }
+.animate-blob-slow { animation: blob-drift 52s ease-in-out infinite reverse; filter: blur(130px) saturate(80%); }
+
+@keyframes ticker-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-caret { animation: ticker-blink 1s step-start infinite; }
+
+/* Ledger grid — a still, faint hairline grid in warm taupe,
+   like ruled stationery. No pan animation: restraint reads
+   more "considered" than a moving dev-console backdrop. */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(35, 38, 34, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35, 38, 34, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float { animation: float-y 5s ease-in-out infinite; }
+
+/* Decision Console — placeholder text uses the dark-panel tan, not
+   the light-mode muted token (which would be unreadable here). */
+.decision-console input::placeholder {
+  color: var(--console-muted);
+  opacity: 0.7;
+}

@@ -1,4 +1,4 @@
-import "./ContactWallet.css";
+import "./Contactwallet.css";
 
 const CARDS = [
   {

@@ -80,6 +80,14 @@ const PROJECTS = [
     stack: ["Python", "Pandas", "Gradient Boosting", "SHAP"],
     gh: "https://github.com/VenkataVarshiniC/BNPL-project",
   },
+  {
+    no: "04", title: "PULSE", sub: "Ecosystem Release Forensics · evidence-first dependency intelligence",
+    accent: "violet",
+    desc: "A repository-bounded system that reconstructs how a software dependency release propagates through downstream projects — from adoption and migration to breakage, remediation, and recovery — using auditable public evidence.",
+    points: ["Declarative case specifications compile into deterministic GitHub and PyPI collection plans, with append-only raw snapshots and provenance for every observation", "Transparent candidate rules and explicit human review keep inference bounded — unknown findings stay unknown instead of being promoted automatically", "A reproducible HTTPX validation pipeline turns preserved evidence into repository summaries, cohort metrics, timelines, and generated forensic reports"],
+    stack: ["Python", "Pydantic", "GitHub API", "PyPI", "pytest", "Ruff"],
+    gh: "https://github.com/VenkataVarshiniC/pulse-ecosystem-release-forensics",
+  },
 ];
 
 // Standalone research study — a companion piece to the AI Adoption Paradox project,
@@ -687,8 +695,8 @@ function Work() {
     <section id="work" className="relative px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal><Eyebrow num="03">Work</Eyebrow></Reveal>
-        <Reveal delay={0.06}><h2 className="font-display mt-4 text-4xl font-bold sm:text-5xl">Three questions, answered properly</h2></Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Reveal delay={0.06}><h2 className="font-display mt-4 text-4xl font-bold sm:text-5xl">Four questions, answered properly</h2></Reveal>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
           {PROJECTS.map((p, i) => <ProjectCard key={p.no} p={p} i={i} />)}
         </div>
       </div>

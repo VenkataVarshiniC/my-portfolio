@@ -87,6 +87,7 @@ const PROJECTS = [
     points: ["Declarative case specifications compile into deterministic GitHub and PyPI collection plans, with append-only raw snapshots and provenance for every observation", "Transparent candidate rules and explicit human review keep inference bounded — unknown findings stay unknown instead of being promoted automatically", "A reproducible HTTPX validation pipeline turns preserved evidence into repository summaries, cohort metrics, timelines, and generated forensic reports"],
     stack: ["Python", "Pydantic", "GitHub API", "PyPI", "pytest", "Ruff"],
     gh: "https://github.com/VenkataVarshiniC/pulse-ecosystem-release-forensics",
+    privateRepo: true,
   },
 ];
 
@@ -218,7 +219,7 @@ function useConsoleCommands() {
           "status: open to full-time, internships",
         ];
       case "case": {
-        if (!arg) return ["usage: case <sdie|ai-adoption-paradox|ledger>  or  case <#>"];
+        if (!arg) return ["usage: case <sdie|ai-adoption-paradox|ledger|pulse>  or  case <#>"];
         const c = findCase(arg);
         if (!c) return [`no case found for "${arg}" — try 'ls'`];
         const header = `${c.title} — ${c.sub}`;
@@ -228,7 +229,7 @@ function useConsoleCommands() {
           c.desc,
           ...c.points.map(p => `  · ${p}`),
           `stack: ${c.stack.join(", ")}`,
-          `source: ${c.gh}`,
+          `source: ${c.privateRepo ? "private repository" : c.gh}`,
         ];
       }
       case "research": {
@@ -682,9 +683,15 @@ function ProjectCard({ p, i }) {
             </span>
           ))}
         </div>
-        <a href={p.gh} target="_blank" rel="noreferrer" className={`mt-5 inline-flex items-center gap-1 font-mono text-xs ${a.text} transition-transform hover:translate-x-1`}>
-          View source ↗
-        </a>
+        {p.privateRepo ? (
+          <span className={`mt-5 inline-flex items-center gap-1 font-mono text-xs ${a.text}`}>
+            Private repository
+          </span>
+        ) : (
+          <a href={p.gh} target="_blank" rel="noreferrer" className={`mt-5 inline-flex items-center gap-1 font-mono text-xs ${a.text} transition-transform hover:translate-x-1`}>
+            View source ↗
+          </a>
+        )}
       </div>
     </Reveal>
   );

@@ -1,16 +1,75 @@
-# React + Vite
+# Venkata Varshini Chilukamarri — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A recruiter-focused portfolio presenting my work across business analysis, product analytics, decision science, and applied AI.
 
-Currently, two official plugins are available:
+**Live site:** [varshini-dev.vercel.app](https://varshini-dev.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Purpose
 
-## React Compiler
+This portfolio is designed to show how I approach ambiguous business problems—not only which tools I use. Each featured case study connects four elements:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. the business decision;
+2. the analytical method;
+3. the measurable finding or trade-off; and
+4. the artifact a stakeholder could use.
 
-## Expanding the ESLint configuration
+## Featured work
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **SDIE:** a strategic decision workspace connecting problem framing, financial modeling, evidence research, and recommendation synthesis.
+- **The AI Adoption Paradox:** an enterprise AI ROI analysis using model comparison, SHAP, and causal inference.
+- **LedgerGuard:** a BNPL profitability and underwriting decision platform built around explicit commercial constraints.
+- **PULSE:** an evidence-first system for reconstructing downstream adoption, migration friction, and recovery after software releases.
+- **The Trust Gap:** a study of human–AI trust calibration, product risk, and governance priorities.
+
+The case studies use synthetic or research datasets where stated. Project pages and repository documentation distinguish modeled findings from realized business outcomes.
+
+## Portfolio experience
+
+- Clear recruiter-oriented navigation across profile, experience, work, research, skills, recognition, and contact sections
+- Evidence-backed project narratives with direct links to source repositories
+- Interactive decision console for exploring projects and analytical frameworks
+- Responsive presentation for desktop and mobile
+- Accessible contact paths to GitHub, LinkedIn, email, résumé, and the live portfolio
+
+## Built with
+
+- React 19
+- Vite 8
+- Tailwind CSS 4
+- JavaScript and CSS
+- Vercel deployment
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the local URL printed by Vite.
+
+## Quality checks
+
+```bash
+npm run lint
+npm run build
+```
+
+## Project structure
+
+```text
+src/
+├── App.jsx              # Portfolio content and primary UI
+├── App.css              # Theme and layout styling
+├── Contactwallet.jsx    # Contact cards
+├── Contactwallet.css
+├── Cursor.jsx           # Optional interactive cursor/audio behavior
+├── Cursor.css
+├── assets/              # Portfolio imagery
+└── main.jsx             # React entry point
+```
+
+## Contact
+
+[GitHub](https://github.com/VenkataVarshiniC) · [LinkedIn](https://www.linkedin.com/in/venkata-varshini-chilukamarri-62b1782b7/) · [Email](mailto:venkatavarshinic@gmail.com)
+

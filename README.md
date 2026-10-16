@@ -25,18 +25,17 @@ The case studies use synthetic or research datasets where stated. Project pages 
 
 ## Portfolio experience
 
-- Clear recruiter-oriented navigation across profile, experience, work, research, skills, recognition, and contact sections
-- Evidence-backed project narratives with direct links to source repositories
-- Interactive decision console for exploring projects and analytical frameworks
-- Responsive presentation for desktop and mobile
-- Accessible contact paths to GitHub, LinkedIn, email, résumé, and the live portfolio
+- Interactive recruiter snapshot spanning analysis, product delivery, and leadership
+- Filterable case-study explorer connecting each question to the analysis, decision, evidence, and outcome
+- Selectable experience timeline that turns résumé entries into concise impact stories
+- Responsive dark and light themes with reduced-motion support
+- Keyboard-accessible navigation, controls, project links, and contact actions
 
 ## Built with
 
 - React 19
 - Vite 8
-- Tailwind CSS 4
-- JavaScript and CSS
+- JavaScript and custom CSS
 - Vercel deployment
 
 ## Run locally
@@ -59,12 +58,8 @@ npm run build
 
 ```text
 src/
-├── App.jsx              # Portfolio content and primary UI
-├── App.css              # Theme and layout styling
-├── Contactwallet.jsx    # Contact cards
-├── Contactwallet.css
-├── Cursor.jsx           # Optional interactive cursor/audio behavior
-├── Cursor.css
+├── App.jsx              # Portfolio content and interactive UI
+├── App.css              # Theme, layout, and responsive styling
 ├── assets/              # Portfolio imagery
 └── main.jsx             # React entry point
 ```

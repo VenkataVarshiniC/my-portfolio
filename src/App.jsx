@@ -15,7 +15,6 @@ const LINKS = {
   linkedin: "https://www.linkedin.com/in/venkata-varshini-chilukamarri-62b1782b7/",
   portfolio: "https://varshini-dev.vercel.app/",
   email: "venkatavarshinic@gmail.com",
-  phone: "+1 (862) 340-5578",
   resume: "https://drive.google.com/file/d/1a8_gy6e4b5X58k-V0jyL2xGxjsFvqU30/view?usp=sharing",
 };
 
@@ -33,8 +32,8 @@ const NAV = [
 ];
 
 const TICKER = [
-  "business analyst → strategy & decision science",
-  "role → Business Analyst",
+  "business & product analysis → decision science",
+  "roles → Business Analyst · Product Analyst · Product Management",
   "status → Open to Full-time, Internships",
   "gpa → 3.4 / 4.0 · Robert H. Smith School of Business, University of Maryland",
   "building → AI-powered solutions, data-driven insights, strategic decisions",
@@ -67,16 +66,16 @@ const PROJECTS = [
   {
     no: "02", title: "The AI Adoption Paradox", sub: "Enterprise AI ROI Intelligence Platform · causal inference",
     accent: "cyan",
-    desc: "McKinsey found only 6% of companies see real ROI from AI spend. I set out to find out why, with data instead of a hunch.",
+    desc: "Enterprises invest heavily in AI, yet value realization remains inconsistent. I built a decision framework to test which organizational capabilities—not just spending—drive modeled ROI.",
     points: ["1,500-company synthetic dataset across 12 industries, every distribution calibrated to a published finding rather than a convenient assumption", "Random Forest (test R² = 0.886) selected across 6 models under 5-fold cross-validation, decomposed feature-by-feature with SHAP", "DoWhy causal backdoor adjustment isolates true effect from confounding correlation — process redesign quality causally drives +8.67% ROI, not investment size"],
     stack: ["Python", "scikit-learn", "XGBoost", "SHAP", "DoWhy", "React"],
     gh: "https://github.com/VenkataVarshiniC/AI-Paradox",
   },
   {
-    no: "03", title: "Ledger", sub: "BNPL Portfolio Profitability & Risk Optimization",
+    no: "03", title: "LedgerGuard", sub: "BNPL Risk & Profitability Decision Platform",
     accent: "amber",
     desc: "BNPL lenders make money in a narrow margin between fee revenue and default losses. Most underwriting conversations only look at one side of that equation.",
-    points: ["5,000-customer, 42,000-transaction synthetic portfolio with every default computed from a real risk logit — credit score, income, employment, category risk — not randomized", "Gradient-boosted risk model (AUC 0.70) with SHAP explainability behind every score", "Threshold-simulation engine tests every approval cutoff live, surfacing a $470K profit swing by repricing only the riskiest 5–15% of volume instead of tightening credit across the board"],
+    points: ["5,000-customer, 42,000-transaction synthetic portfolio with default risk modeled from credit score, income, employment, and merchant-category signals", "Gradient-boosted risk model (AUC 0.70) with SHAP explainability behind every score", "Threshold simulation compares approval policies live; the recommended break-even policy improves modeled profit by $149,217 while making the 10.75pp approval-rate trade-off explicit"],
     stack: ["Python", "Pandas", "Gradient Boosting", "SHAP"],
     gh: "https://github.com/VenkataVarshiniC/BNPL-project",
   },
@@ -87,7 +86,7 @@ const PROJECTS = [
     points: ["Declarative case specifications compile into deterministic GitHub and PyPI collection plans, with append-only raw snapshots and provenance for every observation", "Transparent candidate rules and explicit human review keep inference bounded — unknown findings stay unknown instead of being promoted automatically", "A reproducible HTTPX validation pipeline turns preserved evidence into repository summaries, cohort metrics, timelines, and generated forensic reports"],
     stack: ["Python", "Pydantic", "GitHub API", "PyPI", "pytest", "Ruff"],
     gh: "https://github.com/VenkataVarshiniC/pulse-ecosystem-release-forensics",
-    privateRepo: true,
+    privateRepo: false,
   },
 ];
 
@@ -215,7 +214,7 @@ function useConsoleCommands() {
         return [
           "venkata varshini chilukamarri",
           "ms information systems & ai · robert h. smith school of business, umd",
-          "terrapin scholar · targeting mckinsey ba / bain associate consultant roles",
+          "terrapin scholar · targeting business analyst, product analyst, and product management roles",
           "status: open to full-time, internships",
         ];
       case "case": {
@@ -278,7 +277,7 @@ function useConsoleCommands() {
         window.open(LINKS.resume, "_blank");
         return ["opening resume ↗"];
       case "contact":
-        return [`email    → ${LINKS.email}`, `linkedin → ${LINKS.linkedin}`, `phone    → ${LINKS.phone}`];
+        return [`email     → ${LINKS.email}`, `linkedin  → ${LINKS.linkedin}`, `github    → ${LINKS.github}`, `portfolio → ${LINKS.portfolio}`];
       case "sudo":
         return ["permission denied: varshini is not in the sudoers file. (jk — try 'help')"];
       case "clear":
@@ -444,7 +443,7 @@ function Hero() {
 
         <Reveal>
           <div className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--violet)]">
-            Open to Full-time & Internships
+            Business Analyst · Product Analyst · Product Management
           </div>
         </Reveal>
 
@@ -885,7 +884,7 @@ function Network() {
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--violet)] to-[var(--indigo)] font-display text-[11px] font-bold text-white">VC</div>
                       <div className="min-w-0 leading-tight">
                         <div className="truncate text-xs font-semibold text-[var(--ink)]">Venkata Varshini Chilukamarri</div>
-                        <div className="font-mono text-[9px] text-[var(--muted-2)]">Business Analyst · 1st</div>
+                        <div className="font-mono text-[9px] text-[var(--muted-2)]">MS IS & AI · UMD</div>
                       </div>
                       <svg viewBox="0 0 24 24" className="ml-auto h-4 w-4 shrink-0 fill-[#0A66C2]">
                         <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z" />
@@ -1141,7 +1140,7 @@ function Contact() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center">
           <Reveal delay={0.1} className="flex flex-col items-center gap-10 md:flex-row md:items-center md:justify-center lg:justify-start lg:gap-14">
-            <p className="max-w-xs text-lg text-[var(--muted)] text-center md:text-left">Currently looking for Business Analyst or Strategy Consulting internship and full-time opportunities. If you'd like to work together, or just say hi — reach out.</p>
+            <p className="max-w-xs text-lg text-[var(--muted)] text-center md:text-left">Currently exploring Business Analyst, Product Analyst, and Product Management opportunities. If you'd like to work together, or just say hi — reach out.</p>
             <ContactWallet />
           </Reveal>
           <Reveal delay={0.16}>

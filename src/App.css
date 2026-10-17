@@ -209,6 +209,22 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; }
 .experience-card li { position: relative; padding-left: 22px; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .experience-card li::before { content: "↳"; position: absolute; left: 0; color: var(--cyan); }
 
+.involvement-section { position: relative; }
+.involvement-section::before { content: ""; position: absolute; width: 420px; height: 420px; left: -220px; top: 120px; border-radius: 50%; background: color-mix(in srgb, var(--violet) 8%, transparent); filter: blur(80px); pointer-events: none; }
+.involvement-grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.involvement-grid > .reveal { height: 100%; }
+.involvement-card { position: relative; display: flex; flex-direction: column; min-height: 420px; height: 100%; padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); overflow: hidden; transition: transform .25s, border-color .25s, background .25s; }
+.involvement-card::after { content: ""; position: absolute; inset: auto -60px -100px auto; width: 220px; height: 220px; border-radius: 50%; background: color-mix(in srgb, var(--case-accent) 12%, transparent); filter: blur(15px); pointer-events: none; }
+.involvement-card:hover { transform: translateY(-7px); border-color: color-mix(in srgb, var(--case-accent) 45%, var(--line)); background: var(--surface-raised); }
+.involvement-card.is-featured { border-color: color-mix(in srgb, var(--green) 42%, var(--line)); background-image: linear-gradient(145deg, color-mix(in srgb, var(--green) 8%, transparent), transparent 58%); }
+.involvement-topline { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 16px; color: var(--case-accent); font-size: 9px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.involvement-topline span:last-child { color: var(--muted-2); white-space: nowrap; }
+.involvement-mark { position: absolute; top: 55px; right: 18px; color: color-mix(in srgb, var(--case-accent) 9%, transparent); font: 800 118px/1 "Manrope", sans-serif; letter-spacing: -.08em; }
+.involvement-card h3 { position: relative; z-index: 1; margin: 108px 0 8px; font-size: 27px; line-height: 1.1; letter-spacing: -.045em; }
+.involvement-card > strong { position: relative; z-index: 1; color: var(--case-accent); font-size: 12px; }
+.involvement-card > p { position: relative; z-index: 1; margin: 22px 0 28px; color: var(--muted); font-size: 13px; line-height: 1.62; }
+.involvement-card .tag-row { position: relative; z-index: 1; margin-top: auto; }
+
 .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .approach-card { position: relative; width: 100%; min-height: 285px; padding: 26px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); text-align: left; cursor: pointer; overflow: hidden; transition: transform .25s, border-color .25s, background .25s; }
 .approach-card:hover, .approach-card.is-active { transform: translateY(-7px); border-color: var(--line-strong); background: var(--surface-raised); }
@@ -233,13 +249,13 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; }
 .education-meta span { padding: 8px 11px; border-radius: 999px; background: var(--surface-raised); color: var(--muted); font-size: 10px; font-weight: 700; }
 .course-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 48px; }
 .course-cloud span { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); font-size: 11px; }
-.recognition-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.recognition-stack { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .award-card { min-height: 280px; padding: 28px; }
 .award-card > span { color: var(--muted-2); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .award-card h3 { margin: 44px 0 12px; font-size: 22px; line-height: 1.2; letter-spacing: -.035em; }
 .award-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
 .award-card b { display: block; margin-top: 22px; color: var(--accent-2); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
-.award-primary { grid-column: 1 / -1; color: #0a0d12; background: linear-gradient(135deg, #b9aeff, #77e1ed); }
+.award-primary { color: #0a0d12; background: linear-gradient(135deg, #b9aeff, #77e1ed); }
 .award-primary > span, .award-primary p, .award-primary b { color: rgba(10, 13, 18, .7); }
 .award-primary h3 { max-width: 540px; margin-top: 52px; font-size: 30px; }
 .compact-award h3 { margin-top: 60px; }
@@ -275,6 +291,8 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; }
   .timeline-nav::before, .timeline-nav button::before { display: none; }
   .timeline-nav button { padding: 16px; border: 1px solid var(--line); border-radius: 14px; }
   .timeline-nav button.is-active { background: var(--surface-raised); }
+  .involvement-grid { grid-template-columns: repeat(2, 1fr); }
+  .involvement-grid > .reveal:last-child { grid-column: 1 / -1; }
   .approach-grid { grid-template-columns: repeat(2, 1fr); }
   .credential-grid { grid-template-columns: 1fr; }
   .education-card { min-height: auto; }
@@ -320,6 +338,9 @@ h1, h2, h3 { font-family: "Manrope", sans-serif; }
   .timeline-nav button { flex: 0 0 245px; scroll-snap-align: start; }
   .experience-card { min-height: 0; padding: 28px; }
   .experience-card h3 { font-size: 33px; }
+  .involvement-grid { grid-template-columns: 1fr; }
+  .involvement-grid > .reveal:last-child { grid-column: auto; }
+  .involvement-card { min-height: 360px; }
   .approach-grid { grid-template-columns: 1fr; }
   .approach-card { min-height: 220px; }
   .approach-card h3 { margin-top: 36px; }

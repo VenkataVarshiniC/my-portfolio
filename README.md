@@ -27,7 +27,7 @@ The case studies use synthetic or research datasets where stated. Project pages 
 
 - Interactive recruiter snapshot spanning analysis, product delivery, and leadership
 - Filterable case-study explorer connecting each question to the analysis, decision, evidence, and outcome
-- Selectable experience timeline that turns résumé entries into concise impact stories
+- Selectable experience timeline plus a dedicated involvement section for programs, community, and competitions
 - Responsive dark and light themes with reduced-motion support
 - Keyboard-accessible navigation, controls, project links, and contact actions
 

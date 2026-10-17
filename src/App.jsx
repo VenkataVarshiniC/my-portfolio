@@ -19,7 +19,17 @@ const SNAPSHOTS = {
 
 const PROJECTS = [
   {
-    id: "ledgerguard", order: "01", title: "LedgerGuard", category: "Product analytics", filters: ["Product", "Business"], accent: "amber",
+    id: "pulse", order: "01", title: "PULSE", category: "Evidence product", filters: ["Product", "Business"], accent: "green",
+    statement: "Post-release intelligence for reconstructing adoption, friction, remediation, and recovery.",
+    question: "What actually happens across an open-source ecosystem after a dependency ships a consequential release?",
+    analysis: "Compiles declarative cases into deterministic GitHub and PyPI collection plans with append-only evidence, provenance, and bounded candidate rules.",
+    decision: "Unknown findings remain unknown until reviewed; the product prioritizes auditable evidence over automated certainty.",
+    evidence: ["Immutable raw snapshots", "Human review checkpoints", "Generated forensic reports"],
+    metrics: [["5", "release stages"], ["2", "source systems"], ["100%", "evidence traced"]],
+    stack: ["Python", "Pydantic", "GitHub API", "pytest"], repo: "https://github.com/VenkataVarshiniC/pulse-ecosystem-release-forensics",
+  },
+  {
+    id: "ledgerguard", order: "02", title: "LedgerGuard", category: "Product analytics", filters: ["Product", "Business"], accent: "amber",
     statement: "A BNPL decision platform that makes the tension between growth, risk, and profit explicit.",
     question: "How can a lender improve profitability without sacrificing an unacceptable amount of approval volume?",
     analysis: "Modeled 5,000 synthetic customers and 42,000 transactions, then compared threshold strategies with SHAP-backed risk scoring and sensitivity analysis.",
@@ -30,7 +40,7 @@ const PROJECTS = [
     caveat: "Modeled result from synthetic data; not a realized lending outcome.",
   },
   {
-    id: "ai-paradox", order: "02", title: "AI Adoption Paradox", category: "Strategy analytics", filters: ["Business", "AI"], accent: "violet",
+    id: "ai-paradox", order: "03", title: "AI Adoption Paradox", category: "Strategy analytics", filters: ["Business", "AI"], accent: "violet",
     statement: "An enterprise AI ROI study that tests organizational capability—not spending—as the source of value.",
     question: "Why do large AI investments fail to translate into measurable enterprise value?",
     analysis: "Compared six models across a synthetic panel of 1,500 companies, then used SHAP and causal estimation to separate strong predictors from plausible levers.",
@@ -41,7 +51,7 @@ const PROJECTS = [
     caveat: "Synthetic research data; presented as a decision-framework demonstration.",
   },
   {
-    id: "sdie", order: "03", title: "SDIE", category: "Decision product", filters: ["Product", "AI"], accent: "cyan",
+    id: "sdie", order: "04", title: "SDIE", category: "Decision product", filters: ["Product", "AI"], accent: "cyan",
     statement: "A strategic decision workspace where every recommendation traces to a calculation, weight, assumption, or source.",
     question: "How can a team combine quantitative decision analysis with evidence-grounded synthesis without hiding the logic?",
     analysis: "Connected financial modeling, MCDA, Monte Carlo analysis, evidence research, and recommendation synthesis through six bounded contexts.",
@@ -49,16 +59,6 @@ const PROJECTS = [
     evidence: ["Six bounded contexts", "132 backend tests", "Deterministic computation boundary"],
     metrics: [["6", "decision modules"], ["132", "backend tests"], ["12/12", "sensitivity scenarios"]],
     stack: ["FastAPI", "PostgreSQL", "React", "Decision science"], repo: "https://github.com/VenkataVarshiniC/SDIE",
-  },
-  {
-    id: "pulse", order: "04", title: "PULSE", category: "Evidence product", filters: ["Product", "Business"], accent: "green",
-    statement: "Post-release intelligence for reconstructing adoption, friction, remediation, and recovery.",
-    question: "What actually happens across an open-source ecosystem after a dependency ships a consequential release?",
-    analysis: "Compiles declarative cases into deterministic GitHub and PyPI collection plans with append-only evidence, provenance, and bounded candidate rules.",
-    decision: "Unknown findings remain unknown until reviewed; the product prioritizes auditable evidence over automated certainty.",
-    evidence: ["Immutable raw snapshots", "Human review checkpoints", "Generated forensic reports"],
-    metrics: [["5", "release stages"], ["2", "source systems"], ["100%", "evidence traced"]],
-    stack: ["Python", "Pydantic", "GitHub API", "pytest"], repo: "https://github.com/VenkataVarshiniC/pulse-ecosystem-release-forensics",
   },
   {
     id: "trust-gap", order: "05", title: "The Trust Gap", category: "Research", filters: ["AI", "Business"], accent: "rose",

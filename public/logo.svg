@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Venkata Varshini portfolio logo</title>
+  <desc id="desc">A geometric double V monogram</desc>
+  <defs>
+    <linearGradient id="bg" x1="44" y1="26" x2="468" y2="486" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171e29"/>
+      <stop offset="1" stop-color="#090c11"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="132" y1="122" x2="398" y2="398" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9a94e8"/>
+      <stop offset="1" stop-color="#72c8d0"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="492" height="492" rx="144" fill="url(#bg)"/>
+  <rect x="11" y="11" width="490" height="490" rx="143" fill="none" stroke="#ffffff" stroke-opacity=".13" stroke-width="2"/>
+  <path d="M102 135h67l87 236-33 4-20-52-101-188Z" fill="#f2f4f7"/>
+  <path d="M203 135h67l87 236-67 4-87-240Z" fill="#f2f4f7" fill-opacity=".78"/>
+  <path d="M410 135h-67l-86 236 65 4 88-240Z" fill="url(#accent)"/>
+  <circle cx="416" cy="98" r="17" fill="#7bdea6"/>
+</svg>

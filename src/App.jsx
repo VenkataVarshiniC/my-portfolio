@@ -12,9 +12,9 @@ const LINKS = {
 const NAV = [["work", "Casework"], ["experience", "Experience"], ["involvement", "Involvement"], ["approach", "Approach"], ["credentials", "Credentials"], ["contact", "Contact"]];
 
 const SNAPSHOTS = {
-  Analyze: { eyebrow: "Find the signal", title: "Structure ambiguity into a decision.", body: "I frame the question, define the evidence, test the assumptions, and make the trade-offs visible.", tags: ["Requirements", "Market research", "KPI design", "Causal analysis"] },
-  Build: { eyebrow: "Make it usable", title: "Turn analysis into a product.", body: "I package the work as a dashboard, scenario tool, decision engine, or executive-ready narrative.", tags: ["Product thinking", "Prototyping", "FastAPI", "React"] },
-  Lead: { eyebrow: "Move the work forward", title: "Align people around the next step.", body: "I translate between stakeholders, analysts, and builders so recommendations survive beyond the presentation.", tags: ["Client leadership", "Facilitation", "Storytelling", "Delivery"] },
+  Analyze: { eyebrow: "Find the signal", title: "Structure ambiguity into a decision.", body: "I frame the question, define the evidence, test the assumptions, and make the trade-offs visible.", tags: ["Requirements", "Market research", "KPI design", "Causal analysis"], path: ["Question", "Evidence", "Trade-offs", "Decision"], note: "Evidence first" },
+  Build: { eyebrow: "Make it usable", title: "Turn analysis into a product.", body: "I package the work as a dashboard, scenario tool, decision engine, or executive-ready narrative.", tags: ["Product thinking", "Prototyping", "FastAPI", "React"], path: ["Insight", "Prototype", "Test", "Deliver"], note: "Built for use" },
+  Lead: { eyebrow: "Move the work forward", title: "Align people around the next step.", body: "I translate between stakeholders, analysts, and builders so recommendations survive beyond the presentation.", tags: ["Client leadership", "Facilitation", "Storytelling", "Delivery"], path: ["Listen", "Align", "Decide", "Move"], note: "People included" },
 };
 
 const PROJECTS = [
@@ -139,6 +139,24 @@ function Reveal({ children, className = "", delay = 0 }) {
   return <div ref={ref} className={`reveal ${visible ? "is-visible" : ""} ${className}`} style={{ "--delay": `${delay}s` }}>{children}</div>;
 }
 
+function trackPointer(event) {
+  if (event.pointerType === "touch") return;
+  const surface = event.currentTarget;
+  const bounds = surface.getBoundingClientRect();
+  const x = (event.clientX - bounds.left) / bounds.width;
+  const y = (event.clientY - bounds.top) / bounds.height;
+  surface.style.setProperty("--pointer-x", `${x * 100}%`);
+  surface.style.setProperty("--pointer-y", `${y * 100}%`);
+  surface.style.setProperty("--rotate-x", `${(0.5 - y) * 3.2}deg`);
+  surface.style.setProperty("--rotate-y", `${(x - 0.5) * 4.2}deg`);
+}
+
+function resetPointer(event) {
+  const surface = event.currentTarget;
+  surface.style.setProperty("--rotate-x", "0deg");
+  surface.style.setProperty("--rotate-y", "0deg");
+}
+
 function Icon({ name }) {
   const paths = {
     arrow: <><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></>, external: <><path d="M15 4h5v5"/><path d="m10 14 10-10"/><path d="M20 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></>,
@@ -167,7 +185,16 @@ function Hero() {
       <Reveal delay={0.18} className="hero-actions"><a className="button primary" href="#work">Explore casework <Icon name="arrow" /></a><a className="button secondary" href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn <Icon name="external" /></a></Reveal>
       <Reveal delay={0.24} className="hero-proof"><div><strong>MS IS & AI</strong><span>UMD Smith · Dec 2026</span></div><div><strong>Terrapin Scholar</strong><span>Merit + leadership</span></div><div><strong>1st place</strong><span>UMD XR Buildfest</span></div></Reveal>
     </div>
-    <Reveal delay={0.1} className="hero-brief-wrap"><aside className="hero-brief" aria-label="Recruiter profile"><div className="brief-topline"><span>Recruiter profile / 2026</span><span className="brief-status"><i/> Open to roles</span></div><div className="profile-intro"><div className="profile-mark" aria-hidden="true"><img src="/logo.svg" alt="" /></div><div><span>Business + Product</span><p>Decision-driven analyst.</p></div></div><div className="profile-rule" /><div className="snapshot-tabs" role="tablist" aria-label="Core capabilities">{Object.keys(SNAPSHOTS).map((key, index) => <button key={key} role="tab" aria-selected={snapshot === key} className={snapshot === key ? "is-active" : ""} onClick={() => setSnapshot(key)}><span>0{index + 1}</span>{key}</button>)}</div><div className="snapshot-content" key={snapshot}><span>{current.eyebrow}</span><h2>{current.title}</h2><p>{current.body}</p><div className="tag-row">{current.tags.map(tag => <b key={tag}>{tag}</b>)}</div></div><div className="brief-footer"><span>College Park, Maryland</span><span>Available Dec 2026</span></div></aside></Reveal>
+    <Reveal delay={0.1} className="hero-brief-wrap">
+      <aside className="hero-brief tactile-surface" aria-label="Recruiter profile" onPointerMove={trackPointer} onPointerLeave={resetPointer}>
+        <div className="brief-topline"><span>Recruiter profile / 2026</span><span className="brief-status"><i/> Open to roles</span></div>
+        <div className="profile-intro"><div className="profile-mark" aria-hidden="true"><img src="/logo.svg" alt="" /></div><div><span>Business + Product</span><p>Decision-driven analyst.</p></div></div>
+        <div className="profile-rule" />
+        <div className="snapshot-tabs" role="tablist" aria-label="Core capabilities">{Object.keys(SNAPSHOTS).map((key, index) => <button key={key} type="button" role="tab" aria-selected={snapshot === key} className={snapshot === key ? "is-active" : ""} onClick={() => setSnapshot(key)}><span>0{index + 1}</span>{key}</button>)}</div>
+        <div className="snapshot-content" key={snapshot}><span>{current.eyebrow}</span><h2>{current.title}</h2><p>{current.body}</p><div className="tag-row">{current.tags.map(tag => <b key={tag}>{tag}</b>)}</div><div className="decision-path" aria-label={`${snapshot} workflow`}><div className="path-track">{current.path.map((step, index) => <span key={step} style={{ "--step-delay": `${index * 0.1}s` }}>{step}</span>)}</div><small>{current.note}</small></div></div>
+        <div className="brief-footer"><span>Move cursor to explore</span><span>Available Dec 2026</span></div>
+      </aside>
+    </Reveal>
   </section>;
 }
 
@@ -180,8 +207,8 @@ function ProjectExplorer() {
   return <section id="work" className="section shell">
     <Reveal className="section-heading split-heading"><div><span className="eyebrow">Selected casework</span><h2>Proof, not just projects.</h2></div><p>Choose a case to inspect the business question, analytical approach, decision, and evidence behind the recommendation.</p></Reveal>
     <Reveal delay={0.08} className="filter-bar" role="toolbar" aria-label="Filter case studies">{["All", "Product", "Business", "AI"].map(item => <button key={item} className={filter === item ? "is-active" : ""} onClick={() => setFilter(item)}>{item}</button>)}</Reveal>
-    <div className="project-explorer"><div className="project-list" role="list">{filtered.map(project => <button key={project.id} role="listitem" className={`project-row ${selected.id === project.id ? "is-active" : ""}`} onClick={() => setSelectedId(project.id)}><span className={`project-index ${project.accent}`}>{project.order}</span><span className="project-name"><strong>{project.title}</strong><small>{project.category}</small></span><span className="project-summary">{project.statement}</span><Icon name="arrow" /></button>)}</div>
-      <article className={`case-panel accent-${selected.accent}`} key={selected.id}><div className="case-topline"><span>{selected.category}</span><span>Case {selected.order}</span></div><h3>{selected.title}</h3><p className="case-statement">{selected.statement}</p><div className="metric-grid">{selected.metrics.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div><div className="case-story"><div><span>01 · Question</span><p>{selected.question}</p></div><div><span>02 · Analysis</span><p>{selected.analysis}</p></div><div><span>03 · Decision</span><p>{selected.decision}</p></div></div><div className="case-evidence"><span>Evidence package</span><ul>{selected.evidence.map(item => <li key={item}>{item}</li>)}</ul></div>{selected.caveat && <p className="case-caveat">{selected.caveat}</p>}<div className="case-footer"><div className="tag-row">{selected.stack.map(item => <b key={item}>{item}</b>)}</div><a href={selected.repo} target="_blank" rel="noreferrer">View repository <Icon name="external" /></a></div></article>
+    <div className="project-explorer"><div><div className="explorer-cue"><span>Hover to preview</span><i /> <span>Click to hold</span></div><div className="project-list" role="list">{filtered.map(project => <button key={project.id} role="listitem" className={`project-row ${selected.id === project.id ? "is-active" : ""}`} onMouseEnter={() => setSelectedId(project.id)} onFocus={() => setSelectedId(project.id)} onClick={() => setSelectedId(project.id)}><span className={`project-index ${project.accent}`}>{project.order}</span><span className="project-name"><strong>{project.title}</strong><small>{project.category}</small></span><span className="project-summary">{project.statement}</span><Icon name="arrow" /></button>)}</div></div>
+      <article className={`case-panel tactile-surface accent-${selected.accent}`} key={selected.id} onPointerMove={trackPointer} onPointerLeave={resetPointer}><div className="case-topline"><span>{selected.category}</span><span>Case {selected.order}</span></div><h3>{selected.title}</h3><p className="case-statement">{selected.statement}</p><div className="metric-grid">{selected.metrics.map(([value, label], index) => <div key={label} style={{ "--metric-delay": `${index * 80}ms` }}><strong>{value}</strong><span>{label}</span></div>)}</div><div className="case-story"><div><span>01 · Question</span><p>{selected.question}</p></div><div><span>02 · Analysis</span><p>{selected.analysis}</p></div><div><span>03 · Decision</span><p>{selected.decision}</p></div></div><div className="case-evidence"><span>Evidence package</span><ul>{selected.evidence.map(item => <li key={item}>{item}</li>)}</ul></div>{selected.caveat && <p className="case-caveat">{selected.caveat}</p>}<div className="case-footer"><div className="tag-row">{selected.stack.map(item => <b key={item}>{item}</b>)}</div><a href={selected.repo} target="_blank" rel="noreferrer">View repository <Icon name="external" /></a></div></article>
     </div>
   </section>;
 }

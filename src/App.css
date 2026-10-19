@@ -353,6 +353,7 @@ h1, h2, h3 { font-family: "Onest Variable", "Onest", sans-serif; }
   .split-heading, .contact-grid { grid-template-columns: 1fr; gap: 25px; }
   .section-heading { margin-bottom: 34px; }
   .project-row { grid-template-columns: 38px 1fr 20px; min-height: 90px; }
+  .explorer-cue { display: none; }
   .project-summary { display: none; }
   .case-panel { padding: 25px; border-radius: 19px; }
   .case-panel h3 { font-size: 35px; }

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Venkata Varshini Chilukamarri — Portfolio</title>
+  <desc id="desc">Business and Product Analyst portfolio social preview</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090c11"/>
+      <stop offset="1" stop-color="#111824"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9d91ff"/>
+      <stop offset="1" stop-color="#65d7e6"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="56" y="54" width="1088" height="522" rx="28" fill="#111720" fill-opacity=".78" stroke="#fff" stroke-opacity=".13"/>
+  <rect x="56" y="54" width="8" height="522" rx="4" fill="url(#accent)"/>
+  <text x="102" y="117" fill="#70dbe7" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">BUSINESS · PRODUCT · DECISION SCIENCE</text>
+  <text x="102" y="218" fill="#f4f6fa" font-family="Arial, sans-serif" font-size="58" font-weight="700">Venkata Varshini</text>
+  <text x="102" y="285" fill="#f4f6fa" font-family="Arial, sans-serif" font-size="58" font-weight="700">Chilukamarri</text>
+  <text x="102" y="367" fill="#aab3c1" font-family="Arial, sans-serif" font-size="31">I turn ambiguity into decisions people can use.</text>
+  <line x1="102" y1="422" x2="1098" y2="422" stroke="#fff" stroke-opacity=".12"/>
+  <text x="102" y="480" fill="#f4f6fa" font-family="Arial, sans-serif" font-size="23" font-weight="600">PULSE</text>
+  <text x="260" y="480" fill="#f4f6fa" font-family="Arial, sans-serif" font-size="23" font-weight="600">LEDGERGUARD</text>
+  <text x="510" y="480" fill="#f4f6fa" font-family="Arial, sans-serif" font-size="23" font-weight="600">AI ADOPTION PARADOX</text>
+  <text x="102" y="531" fill="#788394" font-family="Arial, sans-serif" font-size="17" letter-spacing="2">SELECTED CASEWORK · EXPERIENCE · INVOLVEMENT</text>
+  <circle cx="1092" cy="108" r="10" fill="#73dba2"/>
+</svg>

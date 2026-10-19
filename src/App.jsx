@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import Lenis from "lenis";
 import "./App.css";
-import decisionMark from "./assets/hero.png";
 
 const LINKS = {
   github: "https://github.com/VenkataVarshiniC",
@@ -102,6 +102,37 @@ function usePageSignals() {
   return { active, progress };
 }
 
+function usePremiumScroll() {
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const desktop = window.matchMedia("(min-width: 781px)");
+    if (reducedMotion.matches || !desktop.matches) return undefined;
+
+    const lenis = new Lenis({ duration: 1.08, smoothWheel: true, wheelMultiplier: 0.86 });
+    let animationFrame;
+    const frame = time => { lenis.raf(time); animationFrame = window.requestAnimationFrame(frame); };
+    animationFrame = window.requestAnimationFrame(frame);
+
+    const navigate = event => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+      const id = link.getAttribute("href");
+      const target = id && id !== "#" ? document.querySelector(id) : null;
+      if (!target) return;
+      event.preventDefault();
+      lenis.scrollTo(target, { offset: -94, duration: 1.05 });
+      window.history.replaceState(null, "", id);
+    };
+
+    document.addEventListener("click", navigate);
+    return () => {
+      document.removeEventListener("click", navigate);
+      window.cancelAnimationFrame(animationFrame);
+      lenis.destroy();
+    };
+  }, []);
+}
+
 function Reveal({ children, className = "", delay = 0 }) {
   const ref = useRef(null); const [visible, setVisible] = useState(false);
   useEffect(() => { const node = ref.current; if (!node) return undefined; const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } }, { threshold: 0.12 }); observer.observe(node); return () => observer.disconnect(); }, []);
@@ -136,7 +167,7 @@ function Hero() {
       <Reveal delay={0.18} className="hero-actions"><a className="button primary" href="#work">Explore casework <Icon name="arrow" /></a><a className="button secondary" href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn <Icon name="external" /></a></Reveal>
       <Reveal delay={0.24} className="hero-proof"><div><strong>MS IS & AI</strong><span>UMD Smith · Dec 2026</span></div><div><strong>Terrapin Scholar</strong><span>Merit + leadership</span></div><div><strong>1st place</strong><span>UMD XR Buildfest</span></div></Reveal>
     </div>
-    <Reveal delay={0.1} className="hero-stage-wrap"><div className="hero-stage"><div className="stage-glow"/><div className="orbit orbit-one"><span>Frame</span></div><div className="orbit orbit-two"><span>Measure</span></div><div className="decision-core"><img src={decisionMark} alt=""/><span>DECISION<br/>INTELLIGENCE</span></div><div className="stage-card"><div className="snapshot-tabs" role="tablist" aria-label="Recruiter snapshot">{Object.keys(SNAPSHOTS).map(key => <button key={key} role="tab" aria-selected={snapshot === key} className={snapshot === key ? "is-active" : ""} onClick={() => setSnapshot(key)}>{key}</button>)}</div><div className="snapshot-content" key={snapshot}><span>{current.eyebrow}</span><h2>{current.title}</h2><p>{current.body}</p><div className="tag-row">{current.tags.map(tag => <b key={tag}>{tag}</b>)}</div></div></div></div></Reveal>
+    <Reveal delay={0.1} className="hero-brief-wrap"><aside className="hero-brief" aria-label="Recruiter snapshot"><div className="brief-topline"><span>Decision brief · 01</span><span className="brief-status"><i/> Open to opportunities</span></div><div className="brief-intro"><span>VV—26</span><p>Business insight, translated into a clear product or strategic decision.</p></div><div className="snapshot-tabs" role="tablist" aria-label="Recruiter snapshot">{Object.keys(SNAPSHOTS).map(key => <button key={key} role="tab" aria-selected={snapshot === key} className={snapshot === key ? "is-active" : ""} onClick={() => setSnapshot(key)}>{key}</button>)}</div><div className="snapshot-content" key={snapshot}><span>{current.eyebrow}</span><h2>{current.title}</h2><p>{current.body}</p><div className="tag-row">{current.tags.map(tag => <b key={tag}>{tag}</b>)}</div></div><div className="brief-footer"><span>College Park, Maryland</span><span>Portfolio · 2026</span></div></aside></Reveal>
   </section>;
 }
 
@@ -181,6 +212,7 @@ function Contact() {
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("portfolio-theme") || "dark"); const { active, progress } = usePageSignals();
+  usePremiumScroll();
   useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem("portfolio-theme", theme); }, [theme]);
   return <><a className="skip-link" href="#work">Skip to casework</a><Header active={active} progress={progress} theme={theme} setTheme={setTheme}/><main><Hero/><ProofStrip/><ProjectExplorer/><Experience/><Involvement/><Approach/><Credentials/><Contact/></main></>;
 }

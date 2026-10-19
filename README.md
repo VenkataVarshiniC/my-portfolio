@@ -15,10 +15,10 @@ This portfolio is designed to show how I approach ambiguous business problems—
 
 ## Featured work
 
-- **SDIE:** a strategic decision workspace connecting problem framing, financial modeling, evidence research, and recommendation synthesis.
-- **The AI Adoption Paradox:** an enterprise AI ROI analysis using model comparison, SHAP, and causal inference.
-- **LedgerGuard:** a BNPL profitability and underwriting decision platform built around explicit commercial constraints.
 - **PULSE:** an evidence-first system for reconstructing downstream adoption, migration friction, and recovery after software releases.
+- **LedgerGuard:** a BNPL profitability and underwriting decision platform built around explicit commercial constraints.
+- **The AI Adoption Paradox:** an enterprise AI ROI analysis using model comparison, SHAP, and causal inference.
+- **SDIE:** a strategic decision workspace connecting problem framing, financial modeling, evidence research, and recommendation synthesis.
 - **The Trust Gap:** a study of human–AI trust calibration, product risk, and governance priorities.
 
 The case studies use synthetic or research datasets where stated. Project pages and repository documentation distinguish modeled findings from realized business outcomes.
@@ -28,13 +28,17 @@ The case studies use synthetic or research datasets where stated. Project pages 
 - Interactive recruiter snapshot spanning analysis, product delivery, and leadership
 - Filterable case-study explorer connecting each question to the analysis, decision, evidence, and outcome
 - Selectable experience timeline plus a dedicated involvement section for programs, community, and competitions
+- Premium editorial interface with self-hosted variable typography and accessibility-aware smooth scrolling
 - Responsive dark and light themes with reduced-motion support
 - Keyboard-accessible navigation, controls, project links, and contact actions
+- Search and social metadata including canonical URLs, Open Graph, Twitter cards, JSON-LD, sitemap, and robots rules
 
 ## Built with
 
 - React 19
 - Vite 8
+- Instrument Sans variable font
+- Lenis smooth scrolling with reduced-motion fallback
 - JavaScript and custom CSS
 - Vercel deployment
 
@@ -57,6 +61,13 @@ npm run build
 ## Project structure
 
 ```text
+public/
+├── favicon.svg          # Browser and manifest identity
+├── og-card.svg          # Social sharing preview
+├── robots.txt           # Search crawler rules
+├── sitemap.xml          # Canonical site URL
+└── site.webmanifest     # Installable site metadata
+
 src/
 ├── App.jsx              # Portfolio content and interactive UI
 ├── App.css              # Theme, layout, and responsive styling

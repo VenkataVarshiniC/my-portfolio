@@ -1,4 +1,4 @@
-# Venkata Varshini Chilukamarri — Portfolio
+# Venkata Varshini Chilukamarri | Portfolio
 
 A recruiter-focused portfolio presenting my work across business analysis, product analytics, decision science, and applied AI.
 
@@ -6,7 +6,7 @@ A recruiter-focused portfolio presenting my work across business analysis, produ
 
 ## Purpose
 
-This portfolio is designed to show how I approach ambiguous business problems—not only which tools I use. Each featured case study connects four elements:
+This portfolio is designed to show how I approach ambiguous business problems, not only which tools I use. Each featured case study connects four elements:
 
 1. the business decision;
 2. the analytical method;
@@ -37,7 +37,7 @@ The case studies use synthetic or research datasets where stated. Project pages 
 
 - React 19
 - Vite 8
-- Instrument Sans variable font
+- Onest variable font
 - Lenis smooth scrolling with reduced-motion fallback
 - JavaScript and custom CSS
 - Vercel deployment
@@ -62,8 +62,10 @@ npm run build
 
 ```text
 public/
-├── favicon.svg          # Browser and manifest identity
-├── og-card.svg          # Social sharing preview
+├── logo.svg             # Vector identity mark
+├── logo-512.png         # App and structured-data logo
+├── og-card.svg          # Editable social-preview source
+├── og-image.png         # Social sharing preview
 ├── robots.txt           # Search crawler rules
 ├── sitemap.xml          # Canonical site URL
 └── site.webmanifest     # Installable site metadata
